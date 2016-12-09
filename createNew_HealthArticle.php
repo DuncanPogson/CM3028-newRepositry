@@ -13,7 +13,7 @@ if (isset($_SESSION['login_username'])) //Session exists
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         include("header.php");
 
-        //html code to collect user input in the a html form and create a health article from the information
+        //html code to collect user input in the a html form and create a health article from the info
         ?>
 
         <head>
