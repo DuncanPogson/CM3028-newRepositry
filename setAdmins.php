@@ -34,10 +34,6 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         <?
 
-        include("footer.php");
-
-    } else{
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
@@ -69,6 +65,11 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
             echo "<li>{$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
 
         }
+
+        include("footer.php");
+
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 
         //Adding new admin to club
         //$_author = $_SESSION['login_username'];
