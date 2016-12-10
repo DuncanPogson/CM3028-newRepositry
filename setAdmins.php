@@ -36,22 +36,6 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
-
-        echo"\n\nAll Clubs:";
-        $sqlclub = "SELECT * FROM clubs ";
-        $resultclub = $conn->query($sqlclub);
-
-        while($clubrow = $resultclub->fetch_array())
-        {
-            $clubName = $row['clubName'];
-            $clubID = $row['clubID'];
-            $currentAdmin = $row['userID'];
-
-
-            echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
-
-        }
-
         echo"\nAll Users:";
         $sql = "SELECT * FROM users ";
         $result = $conn->query($sql);
@@ -65,6 +49,20 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         }
 
+        echo"\nAll Clubs:";
+        $sqlclub = "SELECT * FROM club ";
+        $resultclub = $conn->query($sqlclub);
+
+        while($clubrow = $resultclub->fetch_array())
+        {
+            $clubName = $row['clubName'];
+            $clubID = $row['clubID'];
+            $currentAdmin = $row['userID'];
+
+
+            echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
+
+        }
 
 
         include("footer.php");
