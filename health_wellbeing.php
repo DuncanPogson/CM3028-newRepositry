@@ -25,7 +25,7 @@ while($row = $result->fetch_array())
 {
     $articleID = $row['itemID'];
     $articleName = $row['title'];
-    $articleAuthor = $row['userID'];
+    $articleAuthor = $row['username'];
 
 
     echo "<li><a href='health_article.php/?ID={$articleID}'>{$articleName}</a> by {$articleAuthor}</li>";
