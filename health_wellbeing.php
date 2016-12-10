@@ -18,6 +18,14 @@ echo "
 <ul>
 ";
 
+//$_SESSION['username_AccessLvl'] = $_username_AC;
+
+if (isset($_SESSION['username_AccessLvl']) > 1) {
+    echo "<li><a href='createNew_HealthArticle.php'>Create New Article</a></li>";
+} else {
+
+}
+
 $sql = "SELECT * FROM healthnews ";
 $result = $conn->query($sql);
 

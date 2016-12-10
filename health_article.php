@@ -10,6 +10,7 @@ session_start();
 include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
+
 if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
     $_selected_article = $_GET['ID'];
@@ -24,7 +25,7 @@ if (isset($_GET['ID'])) {
     while($row = $result->fetch_array())
     {
         $_articleName = $row['title'];
-        $_articleAuthor = $row['userID'];
+        $_articleAuthor = $row['username'];
         $_articleText = $row['content'];
 
 
