@@ -18,13 +18,15 @@ echo "
 <ul>
 ";
 
-if(isset($_SESSION['AccessLevel'])){}
+if(isset($_SESSION['AccessLevel'])) {
     if (((int)$_SESSION['AccessLevel']) >= 2) {
         echo "<a href='createNew_HealthArticle.php'>Create New Article</a>";
-    }
-    else {
+    } else {
         echo "You can only read articles, Login to write your own!";
     }
+}else{
+    echo "You can only read articles, Login to write your own!";
+}
 
 
 $sql = "SELECT * FROM healthnews ";
