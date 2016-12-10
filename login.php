@@ -8,7 +8,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     include("header.php");
     //html code to collect information from a form
-    session_start();
+
     ?>
     <html lang="en">
     <head>
@@ -51,14 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //run the sql script
         $result = $conn->query($sql);
         while ($row = $result->fetch_array()) {
-            $_SESSION['AccessLevel'] = $row['userID'];
             return true;
         }
         return false;
     }
     if (check_login($_username, $_password, $conn)) {
+        session_start();
 
         $_SESSION['login_username'] = $_username;
+
+        $_SESSION['AccessLevel'] = ['userID'];
 
         header("location:home.php");
     } else {
