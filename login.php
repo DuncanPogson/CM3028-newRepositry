@@ -8,7 +8,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     include("header.php");
     //html code to collect information from a form
-    session_start();
+
     ?>
     <html lang="en">
     <head>
@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         return false;
     }
     if (check_login($_username, $_password, $conn)) {
+        session_start();
 
         $_SESSION['login_username'] = $_username;
 
