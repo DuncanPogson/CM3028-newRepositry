@@ -24,7 +24,6 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
                 <input type="text" name="clubForAdmin" placeholder="Club Title">
                 <br>
                 <input type="number" name="newClubAdmin" placeholder="UserID" ><br>
-                <br>
                 <input type="submit" value="Set Admins">
             </form>
         </main>
@@ -37,6 +36,21 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
+
+        echo"\n\nAll Clubs:";
+        $sqlclub = "SELECT * FROM clubs ";
+        $resultclub = $conn->query($sqlclub);
+
+        while($clubrow = $resultclub->fetch_array())
+        {
+            $clubName = $row['clubName'];
+            $clubID = $row['clubID'];
+            $currentAdmin = $row['userID'];
+
+
+            echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
+
+        }
 
         echo"\nAll Users:";
         $sql = "SELECT * FROM users ";
@@ -51,20 +65,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         }
 
-        echo"\n\nAll Clubs:";
-        $sqlclub = "SELECT * FROM clubs ";
-        $resultclub = $conn->query($sqlclub);
 
-        while($clubrow = $resultclub->fetch_array())
-        {
-            $clubName = $row['clubName'];
-            $clubID = $row['clubID'];
-            $currentAdmin = $row['userID'];
-
-
-            echo "<li>{$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
-
-        }
 
         include("footer.php");
 
