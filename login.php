@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //run the sql script
         $result = $conn->query($sql);
         while ($row = $result->fetch_array()) {
-            $_SESSION['AccessLevel'] = $row['accessLevel'];
             return true;
         }
         return false;
@@ -59,9 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (check_login($_username, $_password, $conn)) {
         session_start();
 
-        $_SESSION['login_username'] = $_username;
+        $sql = "SELECT accessLevel FROM users where username='" . $_username . "'";
+        $result = $conn->query($sql);
 
-        header("location:home.php");
+        while($row = $result->fetch_array()) {
+
+            $_SESSION['AccessLevel'] = $row['accessLevel'];
+
+            $_SESSION['login_username'] = $_username;
+
+            header("location:home.php");
+        }
     } else {
         print('incorrect username or password');
         header("");
