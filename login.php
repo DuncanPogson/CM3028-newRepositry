@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //run the sql script
         $result = $conn->query($sql);
         while ($row = $result->fetch_array()) {
+            $_SESSION['AccessLevel'] = $row['accessLevel'];
             return true;
         }
         return false;
@@ -59,8 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         session_start();
 
         $_SESSION['login_username'] = $_username;
-
-        $_SESSION['AccessLevel'] = ['userID'];
 
         header("location:home.php");
     } else {
