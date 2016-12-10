@@ -20,10 +20,10 @@ echo "
 
 //$_SESSION['username_AccessLvl'] = $_username_AC;
 
-if (isset($_SESSION['username_AccessLvl']) > '1') {
+if ($_SESSION['username_AccessLvl'] >= $_SESSION['admin_AccessLvl']) {
     echo "<li><a href='createNew_HealthArticle.php'>Create New Article</a></li>";
 } else {
-    echo "You can only read articles, you are not permitted to write";
+    echo "You can only read articles";
 }
 
 $sql = "SELECT * FROM healthnews ";
