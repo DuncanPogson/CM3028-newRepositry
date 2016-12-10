@@ -36,7 +36,8 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         include("footer.php");
 
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    } else{
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
