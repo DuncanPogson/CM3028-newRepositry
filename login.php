@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //run the sql script
         $_username_AC = $conn->query($sql_UserID);
 
-        $_SESSION['username_AccessLvl'] = $_username_AC;
+        $_SESSION['username_AccessLvl'] = '2';
 
         header("location:home.php");
     } else {
