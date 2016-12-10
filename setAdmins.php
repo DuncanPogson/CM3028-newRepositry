@@ -34,6 +34,38 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         <?
 
+        //connect to the database
+        include("Database/LoginSystem/DB_Connect.php");
+
+
+        echo"\nAll Users:";
+        $sql = "SELECT * FROM users ";
+        $result = $conn->query($sql);
+
+        while($row = $result->fetch_array())
+        {
+            $userName = $row['username'];
+            $userID = $row['userID'];
+
+            echo "<li>{$userName}, User ID: {$userID}";
+
+        }
+
+        echo"\n\nAll Clubs:";
+        $sql = "SELECT * FROM clubs ";
+        $result = $conn->query($sql);
+
+        while($row = $result->fetch_array())
+        {
+            $clubName = $row['clubName'];
+            $clubID = $row['clubID'];
+            $currentAdmin = $row['userID'];
+
+
+            echo "<li>{$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
+
+        }
+
         include("footer.php");
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -61,37 +93,5 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
     // not admin
     header("location:home.php");
     print('You must be an admin to set admins');
-}
-
-//connect to the database
-include("Database/LoginSystem/DB_Connect.php");
-
-
-echo"\nAll Users:";
-$sql = "SELECT * FROM users ";
-$result = $conn->query($sql);
-
-while($row = $result->fetch_array())
-{
-    $userName = $row['username'];
-    $userID = $row['userID'];
-
-    echo "<li>{$userName}, User ID: {$userID}";
-
-}
-
-echo"\n\nAll Clubs:";
-$sql = "SELECT * FROM clubs ";
-$result = $conn->query($sql);
-
-while($row = $result->fetch_array())
-{
-    $clubName = $row['clubName'];
-    $clubID = $row['clubID'];
-    $currentAdmin = $row['userID'];
-
-
-    echo "<li>{$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
-
 }
 ?>
