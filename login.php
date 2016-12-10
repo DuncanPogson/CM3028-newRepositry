@@ -62,9 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $sql_UserID = "SELECT CAST(accessLevel AS INT) FROM users WHERE username='" . $_username . "'";
 
         //run the sql script
-        $_username_AC = $conn->query($sql_UserID);
+        //$_username_AC = $conn->query($sql_UserID);
 
-        $_SESSION['username_AccessLvl'] = $_username_AC;
+        $_SESSION['username_AccessLvl'] = $sql_UserID;
 
         $_SESSION['admin_AccessLvl'] = 2;
 
