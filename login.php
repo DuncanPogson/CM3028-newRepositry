@@ -58,16 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         session_start();
         $_SESSION['login_username'] = $_username;
 
-        //sql query to test the username and password against ones already in the database
-        //$sql_UserID = "SELECT CAST(accessLevel AS INT) FROM users WHERE username='" . $_username . "'";
-
-        //run the sql script
-        //$_username_AC = $conn->query($sql_UserID);
-
-        $_SESSION['username_AccessLvl'] = $row['userID'];
-
-        $_SESSION['admin_AccessLvl'] = 2;
-
         header("location:home.php");
     } else {
         print('incorrect username or password');

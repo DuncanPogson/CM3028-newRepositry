@@ -18,12 +18,8 @@ echo "
 <ul>
 ";
 
-//$_SESSION['username_AccessLvl'] = $_username_AC;
 
-$_Username_AccsLvl = (int) $_SESSION['username_AccessLvl'];
-$_Admin_AccessLvl = (int) $_SESSION['admin_AccessLvl'];
-
-if ( $_Username_AccsLvl >= $_Admin_AccessLvl) {
+if (isset($_SESSION['login_username'])) {
     echo "<li><a href='createNew_HealthArticle.php'>Create New Article</a></li>";
 } else {
     echo "You can only read articles";
