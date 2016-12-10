@@ -18,6 +18,7 @@ echo "
 <ul>
 ";
 
+echo "" . $_SESSION['AccessLevel'] . "";
 
 if ($_GET['AccessLevel'] >= 2) {
     echo "<a href='createNew_HealthArticle.php'>Create New Article</a>";
