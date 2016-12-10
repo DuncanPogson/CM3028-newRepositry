@@ -11,7 +11,7 @@ Create list of clubs - WORKING
 Allowing articles to be selected via the list - WORKING
 Sign up - Sign in - make them add and read from the database - WORKING
 take information from the database using the selected club. - WORKING
-Implement a php form for admins to create new health articles
+Implement a php form for admins to create new health articles - WORKING
 Implement access levels
 Fix Navigation - Working
 
