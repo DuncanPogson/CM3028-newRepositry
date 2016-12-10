@@ -49,7 +49,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         }
 
-        echo"\n \n All Clubs:";
+        echo"\nAll Clubs:";
         $sqlclub = "SELECT * FROM club ";
         $result = $conn->query($sqlclub);
 
