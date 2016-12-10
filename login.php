@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $_SESSION['login_username'] = $_username;
 
         //sql query to test the username and password against ones already in the database
-        $sql_UserID = "SELECT accessLevel FROM users WHERE username='" . $_username . "'";
+        $sql_UserID = "SELECT CAST(accessLevel AS INT) FROM users WHERE username='" . $_username . "'";
 
         //run the sql script
         $_username_AC = $conn->query($sql_UserID);
