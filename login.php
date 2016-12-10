@@ -66,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         $_SESSION['username_AccessLvl'] = $_username_AC;
 
+        $_SESSION['admin_AccessLvl'] = 2;
+
         header("location:home.php");
     } else {
         print('incorrect username or password');
