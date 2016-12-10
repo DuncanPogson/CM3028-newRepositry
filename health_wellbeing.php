@@ -18,8 +18,6 @@ echo "
 <ul>
 ";
 
-echo "your access level is: " . $_SESSION['AccessLevel'] . "";
-
 if (((int)$_SESSION['AccessLevel']) >= 2) {
     echo "<a href='createNew_HealthArticle.php'>Create New Article</a>";
 } else {
