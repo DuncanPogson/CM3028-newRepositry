@@ -51,9 +51,9 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         echo"\nAll Clubs:";
         $sqlclub = "SELECT * FROM club ";
-        $result = $conn->query($sqlclub);
+        $clubresult = $conn->query($sqlclub);
 
-        while($clubrow = $resultclub->fetch_array())
+        while($clubrow = $clubresult->fetch_array())
         {
             $clubName = $clubrow['clubName'];
             $clubID = $clubrow['clubID'];
