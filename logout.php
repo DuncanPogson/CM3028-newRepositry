@@ -14,7 +14,8 @@ if
 {
     unset
     ($_SESSION
-        ['login_username'])
-        ;
+        ['login_username']
+        ['AccessLevel']);
+
 }
 header("location:home.php");
