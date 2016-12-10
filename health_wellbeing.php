@@ -20,8 +20,8 @@ echo "
 
 //$_SESSION['username_AccessLvl'] = $_username_AC;
 
-$_Username_AccsLvl = $_SESSION['username_AccessLvl'];
-$_Admin_AccessLvl = $_SESSION['admin_AccessLvl'];
+$_Username_AccsLvl = (int) $_SESSION['username_AccessLvl'];
+$_Admin_AccessLvl = (int) $_SESSION['admin_AccessLvl'];
 
 if ( $_Username_AccsLvl >= $_Admin_AccessLvl) {
     echo "<li><a href='createNew_HealthArticle.php'>Create New Article</a></li>";
