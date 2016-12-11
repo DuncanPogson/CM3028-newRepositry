@@ -129,7 +129,7 @@ $counter = 0;
     if (isset($_GET['v'])){
         echo "<a href='".$_SERVER['PHP_SELF']."?month=".$month."&day=".$day."&year=".$year."&v=true&f=true'> Add Event </a>";
         if (isset($_GET['f'])){
-            include ("events.php");
+            include ("eventForm.php");
         }
     }
 ?>
