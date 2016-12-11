@@ -30,9 +30,9 @@
         ?>
         <table border ='1'>
                 <tr>
-                    <td><input type="button" value='<' name ="previousbutton"></td>
+                    <td><input style ='width:50px;' type="button" value='<' name ="previousbutton"></td>
                     <td colsplan ='5'><?php echo $monthName. ", " .$year; ?></td>
-                    <td><input type="button" value='>' name ="nextbutton"></td>
+                    <td><input style ='width:50px;' type="button" value='>' name ="nextbutton"></td>
                 </tr>
                 <tr>
                     <td width = '50px'>Sub</td>
