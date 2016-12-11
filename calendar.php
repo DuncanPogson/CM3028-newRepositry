@@ -55,8 +55,8 @@
                         }
                         if ($counter % 7 == 0){
                             echo"<tr></tr>";
+                            echo "<td align='center'>".$i."</td>";
                         }
-                        echo "<td align='center'>".$i."</td>";
                     }
                 echo "</tr>";
             ?>
