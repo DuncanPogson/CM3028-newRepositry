@@ -6,15 +6,15 @@
                         --year;
                         month = 12;
                     }
-                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" +month+ "&year="+year;
+                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + month + "&year=" +year;
             }
 
             function goNextMonth(month, year) {
                     if (month == 12){
-                        ++year
+                        ++year;
                         month = 1;
                     }
-                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+month+ "&year="+year;
+                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" + month + "&year=" +year;
             }
         </script>
     </head>
