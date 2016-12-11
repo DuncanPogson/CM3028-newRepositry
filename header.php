@@ -86,7 +86,7 @@ session_start();
 
 </head>
 <body onLoad="initialCalendar();">
-<!-- <div id="showCalendar"></div> -->
+<div id="showCalendar"></div>
 </body>
 <header>
     <h1>Go Portlethen</h1>
