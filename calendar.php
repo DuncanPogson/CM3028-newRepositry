@@ -31,7 +31,7 @@
                 $month = date("n");
             }
             if(isset($_GET['year'])){
-                $year = £_GET['year'];
+                $year = $_GET['year'];
             }else{
                 $year = date ("Y");
             }
@@ -47,7 +47,7 @@
         <table border ='1'>
                 <tr>
                     <td><input style ='width:50px;' type="button" value='<' name ="previousbutton" onclick="goLastMonth(<?php echo $month.",". $year ?>)"></td>
-                    <td colsplan ='5'><?php echo $monthName. ", " .$year; ?></td>
+                    <td colspan ='5'><?php echo $monthName. ", " .$year; ?></td>
                     <td><input style ='width:50px;' type="button" value='>' name ="nextbutton" onclick="goNextMonth(<?php echo $month.",". $year ?>)"></td>
                 </tr>
                 <tr>
