@@ -4,7 +4,7 @@
         function goLastMonth(month, year){
             if (month == 1) {
                 --year;
-                month = 12;
+                month = 13;
             }
             document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+(month-1)+"&year="+year;
         }
