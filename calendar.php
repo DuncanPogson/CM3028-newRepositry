@@ -6,11 +6,11 @@
                 --year;
                 month = 13;
             }
-            --month
+            --month;
             var monthstring = ""+month+"";
             var monthlength = monthstring.length;
             if(monthlength <=1){
-                monthstring  = "0"  +monthstring;
+                monthstring  = "0"+monthstring;
             }
             document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+monthstring+"&year="+year;
         }
@@ -20,7 +20,13 @@
                 ++year;
                 month = 0;
             }
-            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+(month+1)+"&year="+year;
+            ++month;
+            var monthstring = ""+month+"";
+            var monthlength = monthstring.length;
+            if(monthlength <=1){
+                monthstring  = "0"+monthstring;
+            }
+            document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+monthstring+"&year="+year;
         }
 
 
