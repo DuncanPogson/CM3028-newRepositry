@@ -4,9 +4,22 @@
     </head>
     <body>
         <?php
-            $day = date("j");
-            $month = date("n");
-            $year = date ("Y");
+            if(isset($_GET['day'])){
+                $day = $_GET['day'];
+            }else{
+                $day = date ("j");
+            }
+            if(isset($_GET['month'])){
+                $month = $_GET['month'];
+            }else{
+                $month = date("n");
+            }
+            if(isset($_GET['year'])){
+                $year = £_GET['year'];
+            }else{
+                $year = date ("Y");
+            }
+
 
 //calendar variable
         $currentTimeStamp = strtotime("$year -  $month - $day");
@@ -17,9 +30,9 @@
         ?>
         <table border ='1'>
                 <tr>
-                    <td></td>
+                    <td><input type="button" value='<' name ="previousbutton"></td>
                     <td colsplan ='5'><?php echo $monthName. ", " .$year; ?></td>
-                    <td></td>
+                    <td><input type="button" value='>' name ="nextbutton"></td>
                 </tr>
                 <tr>
                     <td width = '50px'>Sub</td>
