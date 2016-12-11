@@ -13,7 +13,7 @@ session_start();
     <meta charset="UTF-8">
     <title>Go Portlethen</title>
     <link rel="stylesheet" href="calendarCss.css" type="text/css" media="all"/>
-    <!-- <script language="JavaScript" type="text/javascript">
+    <script language="JavaScript" type="text/javascript">
         function initialCalendar() {
             var hr = new XMLHttpRequest();
             var url = "calendar_start.php";
@@ -83,7 +83,7 @@ session_start();
             document.getElementById("showCalendar").innerHTML = "processing...";
         }
     </script>
-     -->
+
 </head>
 <body onLoad="initialCalendar();">
 <div id="showCalendar"></div>
