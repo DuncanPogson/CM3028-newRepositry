@@ -3,8 +3,8 @@ $showmonth = $_POST['showmonth'];
 $showyear = $_POST['showyear'];
 $showmonth = preg_replace('#[^0-9]#i', '', $showmonth);
 $showyear = preg_replace('#[^0-9]#i', '', $showyear);
-//$showmonth = date ('n');
-//$showyear = date ('y');
+$showmonth = date ('n');
+$showyear = date ('y');
 
 // w = numeric representation of the day of the week
 $day_count = cal_days_in_month(CAL_GREGORIAN, $showmonth, $showyear);
@@ -14,7 +14,7 @@ $post_days = (6 - (date('w', mktime(0,0,0, $showmonth, $day_count, $showyear))))
 echo '<div id="calendar_wrap">';
 echo '<div class="title_bar">';
 echo '<div class="previous_month"><input name="myBtn" type="submit" value="Previous Month" onclick="javascript:last_month();"></div>';
-echo '<div class="show_month">' . '/' . $showmonth . '/' . $showyear . '</div>';
+echo '<div class="show_month">' . $showmonth . '/' . $showyear . '</div>';
 echo '<div class="next_month"><input name="myBtn" type="submit" value="Next Month" onclick="javascript:next_month();"></div>';
 echo '</div>';
 echo '<div class="week_days">';
