@@ -33,11 +33,11 @@
             <?php
                 echo "<tr>";
                     for ($i = 1; $i < $numDays+1; $i++, $counter++){
-                        $timeStamp = strtotime("$year-$month-$i");
+                        $currentTimeStamp = strtotime("$year-$month-$i");
                         if($i == 1){
-                            $firstDay = date("w", $timeStamp);
-                            for ($j == 0; $j < $firstDay; j++, $counter++){
-                                echo "<td>&nonbreakingspace;</td>";
+                            $firstDay = date("w", $currentTimeStamp);
+                            for ($j = 0; $j < $firstDay; $j++, $counter++){
+                                echo "<td>&nbsp;</td>";
                             }
                         }
                         if ($counter % 7 == 0){
