@@ -61,10 +61,24 @@ $currentTimeStamp = strtotime("$year-$month-$day");
 $monthName = date("F", $currentTimeStamp);
 $numDays = date("t", $currentTimeStamp);
 $counter = 0;
-
-
 ?>
+<?php
+    if (isset($_GET['add'])){
+        $title = $_POST['txttitle'];
+        $detail = $_POST['txtdetail'];
 
+        $eventdate = $day."/".$month."/".$year;
+
+        $sqlinsert =  "insert into eventcalendar (Title, Detail, eventDate, dateAdded) values ('".$title."','".$detail."','".$eventdate."', now())";
+
+        $resultinsert = mysql_query($sqlinsert);
+        if ($resultinsert){
+            echo "Event was succsessfully added";
+        }else{
+            echo "Event failed to be added";
+        }
+    }
+?>
 <table border='1'>
     <tr>
         <td><input style='width:50px;' type='button' value='<' name='previousbutton' onclick="goLastMonth(<?php echo $month.",".$year?>)"></td>
