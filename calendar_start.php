@@ -3,8 +3,8 @@ $showmonth = $_POST['showmonth'];
 $showyear = $_POST['showyear'];
 $showmonth = preg_replace('#[^0-9]#i', '', $showmonth);
 $showyear = preg_replace('#[^0-9]#i', '', $showyear);
-$showmonth = date ('n');
-$showyear = date ('y');
+//$showmonth = date ('n');
+//$showyear = date ('y');
 
 // w = numeric representation of the day of the week
 $day_count = cal_days_in_month(CAL_GREGORIAN, $showmonth, $showyear);
