@@ -1,6 +1,22 @@
 <html>
     <head>
+        <script>
+            function goLastMonth(month, year) {
+                    if(month == 1){
+                        --year;
+                        month = 12;
+                    }
+                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month=" +month+ "&year="+year;
+            }
 
+            function goNextMonth(month, year) {
+                    if (month == 12){
+                        ++year
+                        month = 1;
+                    }
+                    document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+month+ "&year="+year;
+            }
+        </script>
     </head>
     <body>
         <?php
@@ -30,9 +46,9 @@
         ?>
         <table border ='1'>
                 <tr>
-                    <td><input style ='width:50px;' type="button" value='<' name ="previousbutton"></td>
+                    <td><input style ='width:50px;' type="button" value='<' name ="previousbutton" onclick="goLastMonth(<?php echo $month.",". $year ?>)"></td>
                     <td colsplan ='5'><?php echo $monthName. ", " .$year; ?></td>
-                    <td><input style ='width:50px;' type="button" value='>' name ="nextbutton"></td>
+                    <td><input style ='width:50px;' type="button" value='>' name ="nextbutton" onclick="goNextMonth(<?php echo $month.",". $year ?>)"></td>
                 </tr>
                 <tr>
                     <td width = '50px'>Sub</td>
