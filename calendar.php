@@ -95,7 +95,17 @@ $counter = 0;
         if ($counter % 7 == 0){
             echo "</tr><tr>";
         }
-        echo "<td align='center'>".$i."</td>";
+        $monthstring = $month;
+        $monthlength = strlen($monthstring);
+        $daystring = $i;
+        $daylength = strlen($daystring);
+        if ($monthlength <= 1){
+            $monthstring = "0".$monthstring;
+        }
+        if ($daylength <= 1){
+            $daystring = "0".$daystring;
+        }
+        echo "<td align='center'><a href='".$_SERVER['PHP_SELF']."?month=".$monthstring."&day=".$daystring."&year=".$year."&v=true'>".$i."</a></td>";
     }
     echo "</tr>";
     ?>
