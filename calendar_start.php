@@ -1,8 +1,8 @@
 <?php
 $showmonth = $_POST['showmonth'];
 $showyear = $_POST['showyear'];
-//$showmonth = preg_replace('#[^0-9]#i', '', $showmonth);
-//$showyear = preg_replace('#[^0-9]#i', '', $showyear);
+$showmonth = preg_replace('#[^0-9]#i', '', $showmonth);
+$showyear = preg_replace('#[^0-9]#i', '', $showyear);
 $showmonth = date ('n');
 $showyear = date ('y');
 
