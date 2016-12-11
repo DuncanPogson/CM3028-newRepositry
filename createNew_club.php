@@ -6,6 +6,8 @@
  * Time: 00:31
  */
 
+session_start();
+
 if (isset($_SESSION['login_username'])) //Session exists
 {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -13,32 +15,30 @@ if (isset($_SESSION['login_username'])) //Session exists
 
         ?>
 
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <!--Setting title of page-->
-            <title>Clubs Page</title>
-        </head>
-
         <main>
             <form action="createNew_Club.php" method="post">
                 Club Name:<br>
                 <input type="text" name="club_name" placeholder="Club Name">
-                <br>
-                Genre:<br>
+                <br><br>
+                Club Genre:<br>
                 <input type="text" name="club_genre" placeholder=" Club Genre">
                 <br><br>
+                Club Email:<br>
                 <input type="text" name="club_email" placeholder="Club Email">
                 <br><br>
+                Club Description:<br>
                 <input type="text" name="club_description" placeholder="Description of Club">
                 <br><br>
+                Club Website:<br>
                 <input type="text" name="club_website" placeholder="Club Website">
                 <br><br>
+                Club Contact:<br>
                 <input type="text" name="club_contact" placeholder="Contact Name">
                 <br><br>
+                Club Contact No:<br>
                 <input type="number" name="club_contactNo" placeholder="Contact Number">
                 <br><br>
-                <p><input type="submit" value="Post"></p>
+                <p><input type="submit" value="Create Club"></p>
             </form>
         </main>
         </html>
@@ -50,7 +50,7 @@ if (isset($_SESSION['login_username'])) //Session exists
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
-        $_author = $_SESSION['login_username'];
+        $_admin = $_SESSION['login_username'];
         $_club_name = $_POST["club_name"];
         $_club_genre = $_POST["club_genre"];
         $_club_email = $_POST["club_email"];
@@ -61,9 +61,17 @@ if (isset($_SESSION['login_username'])) //Session exists
 
 
         $sql = "INSERT INTO club (clubName, genre, clubEmail, description, website, contactName, contactNo) VALUES ('" . $_club_name . "', '" . $_club_genre . "', '" . $_club_email . "', '" . $_club_description . "', '" .
-            $_club_description . "', '" . $_club_website . "', '" . $_club_contact . "', '" . $_club_contactNo . "', '" . $_author . "')";
+            $_club_description . "', '" . $_club_website . "', '" . $_club_contact . "', '" . $_club_contactNo . "', '" . $_admin . "')";
 
+
+
+    if (mysqli_query($conn, $sql)) {
+        header("location:home.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "cannot create club, please try again later.";
     }
+}
 
 
 } else {
