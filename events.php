@@ -33,8 +33,8 @@ include("header.php");
     </html>
 <?
 
-include("footer.php");
-include ("calendar.php");
+
+
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //connect to the database
@@ -48,7 +48,7 @@ include ("calendar.php");
     $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_eventName . "', '" . $_date . "', '" . $_time . "', '" .
         $_description . "')";
 
-   
+
 
 //$sql_query = "SELECT * FROM event";
 
@@ -76,4 +76,6 @@ include ("calendar.php");
     header("location:home.php");
     print('You must be an admin to add a club');
 }
+
+include("footer.php");
 ?>
