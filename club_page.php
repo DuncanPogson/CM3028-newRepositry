@@ -7,7 +7,7 @@
  */
 session_start();
 
-include ("Database/LoginSystem/DB_Connect.php");
+//include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
 if (isset($_SESSION['login_username'])) {
