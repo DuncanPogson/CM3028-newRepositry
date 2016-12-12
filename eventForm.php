@@ -13,3 +13,21 @@
         </tr>
     </table>
 </form>
+
+<?php
+if (isset($_GET['add'])){
+    $title = $_POST['txttitle'];
+    $detail = $_POST['txtdetail'];
+
+    $eventdate = $day."/".$month."/".$year;
+
+    $sqlinsert =  "insert into eventcalendar (Title, Detail, eventDate, dateAdded) values ('".$title."','".$detail."','".$eventdate."', now())";
+
+    $resultinsert = mysql_query($sqlinsert);
+    if ($resultinsert){
+        echo "Event was succsessfully added";
+    }else{
+        echo "Event failed to be added";
+    }
+}
+?>
