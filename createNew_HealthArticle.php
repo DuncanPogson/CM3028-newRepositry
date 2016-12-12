@@ -36,9 +36,6 @@ if (isset($_SESSION['login_username'])) //Session exists
             </form>
         </main>
 
-        </body>
-        </html>
-
         <?
 
         include("footer.php");
