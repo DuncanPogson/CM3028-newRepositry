@@ -48,7 +48,7 @@ include ("calendar.php");
     $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_eventName . "', '" . $_date . "', '" . $_time . "', '" .
         $_description . "')";
 
-    while ($row = $result->fetch_array()) {
+   /* while ($row = $result->fetch_array()) {
         $_eventName = $row['event_name'];
         $_date = $row['event_date'];
         $_time = $row['event_time'];
@@ -64,6 +64,7 @@ include ("calendar.php");
             {$_description}
         </article>";
     }
+    */
 
 //$sql_query = "SELECT * FROM event";
 
@@ -78,7 +79,7 @@ include ("calendar.php");
 //}
 
     if (mysqli_query($conn, $sql)) {
-       
+        header("location:home.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         echo "cannot create club, please try again later.";
