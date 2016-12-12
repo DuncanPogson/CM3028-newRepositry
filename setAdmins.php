@@ -36,7 +36,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         //Listing all clubs/Users to make it easier for the club admin to select which user/club admin relationship they wish to create.
         include("Database/LoginSystem/DB_Connect.php");
 
-        echo"\nAll Users:";
+        echo""."<br/>"."All Users:"."<br/>"."";
         $sql = "SELECT * FROM users ";
         $result = $conn->query($sql);
 
@@ -49,7 +49,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         }
 
-        echo"\nAll Clubs:";
+        echo""."<br/>"."All Clubs:"."<br/>"."";
         $sqlClub = "SELECT * FROM club ";
         $clubResult = $conn->query($sqlClub);
 
