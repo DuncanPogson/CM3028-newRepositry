@@ -21,7 +21,7 @@ if (isset($_SESSION['login_username'])) {
     $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
     $clubResult = $conn->query($_ClubSql);
 
-    if ($userResult == $clubResult) {
+    if (((int)$userResult) == ((int)$clubResult)) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
     }
 }
