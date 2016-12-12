@@ -31,13 +31,13 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 $collect_result = $conn->query($collect_sql);
 
                 while ($collect_row = $collect_result->fetch_array()) {
-                    $_clubName = $row['clubName'];
-                    $_clubGenre = $row['genre'];
-                    $_clubEmail = $row['clubEmail'];
-                    $_clubWebsite = $row['website'];
-                    $_contactName = $row['contactName'];
-                    $_contactNo = $row['contactNo'];
-                    $_description = $row['description'];
+                    $_clubName = $collect_row['clubName'];
+                    $_clubGenre = $collect_row['genre'];
+                    $_clubEmail = $collect_row['clubEmail'];
+                    $_clubWebsite = $collect_row['website'];
+                    $_contactName = $collect_row['contactName'];
+                    $_contactNo = $collect_row['contactNo'];
+                    $_description = $collect_row['description'];
 
                     echo "<article>
                             Title: {$_clubName} \n
