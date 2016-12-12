@@ -21,12 +21,10 @@ if (isset($_SESSION['login_username'])) {
     $sql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
     $clubResult = $conn->query($sql);
 
-    if ($userResult == $clubResult) {
-
-        if (((int)$_SESSION['AccessLevel']) >= 4) {
+    if ($userResult = $clubResult) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
-        }
     }
+}
 
     if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
@@ -61,5 +59,5 @@ if (isset($_SESSION['login_username'])) {
             {$_description}
         </article>";
     }
-}
+
 include ("footer.php");
