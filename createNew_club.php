@@ -16,7 +16,7 @@ if (isset($_SESSION['login_username'])) //Session exists
         ?>
 
         <main>
-            <form action="createNew_Club.php" method="post">
+            <form action="createNew_club.php" method="post">
                 Club Name:<br>
                 <input type="text" name="club_name" placeholder="Club Name">
                 <br><br>

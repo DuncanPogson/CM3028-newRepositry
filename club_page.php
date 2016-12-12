@@ -10,19 +10,36 @@ session_start();
 include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
-if (isset($_GET['ID'])) {
+if (isset($_SESSION['login_username'])) {
+
+    $_curUser = $_SESSION['login_username'];
+
+    $sql = "SELECT userID FROM users WHERE username = '" . $_curUser . "'";
+    $userResult = $conn->query($sql);
+
+    $_ChosenClub = $_GET['ID'];
+    $sql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
+    $clubResult = $conn->query($sql);
+
+    if ($userResult == $clubResult) {
+
+        if (((int)$_SESSION['AccessLevel']) >= 4) {
+            echo "<li><a href='updateClub.php'>Update Club</a></li>";
+        }
+    }
+
+    if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
-    $_selected_club = $_GET['ID'];
-}else{
-    // Fallback behaviour
-    echo "Uh Oh, this club seems to be missing, please go back and pick another club.";
-}
+        $_selected_club = $_GET['ID'];
+    } else {
+        // Fallback behaviour
+        echo "Uh Oh, this club seems to be missing, please go back and pick another club.";
+    }
 
-$sql = "SELECT * FROM club where clubID ='" . $_selected_club . "'";
-$result = $conn->query($sql);
+    $sql = "SELECT * FROM club where clubID ='" . $_selected_club . "'";
+    $result = $conn->query($sql);
 
-while($row = $result->fetch_array())
-    {
+    while ($row = $result->fetch_array()) {
         $_clubName = $row['clubName'];
         $_clubGenre = $row['genre'];
         $_clubEmail = $row['clubEmail'];
@@ -44,5 +61,5 @@ while($row = $result->fetch_array())
             {$_description}
         </article>";
     }
-
+}
 include ("footer.php");
