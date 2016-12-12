@@ -19,15 +19,18 @@ include ("header.php");
 
     include ("Database/LoginSystem/DB_Connect.php");
     $_curUser = $_SESSION['login_username'];
-    $_UserSql = "SELECT clubID FROM users WHERE username = '" . $_curUser . "'";
-    $userResult = $conn->query($_UserSql);
+    $sql = "SELECT clubID FROM users WHERE username = '" . $_curUser . "'";
+    $result = $conn->query($sql);
 
-    $_ChosenClub = $_GET['ID'];
+    while($row = $result->fetch_array()) {
 
-    echo "User: {$userResult}, Club: {$_ChosenClub}";
+        $_currentUser = $row['clubID'];
 
-    if ((int)$userResult == (int)$_ChosenClub) {
-        echo "<li><a href='updateClub.php/?ID={$_ChosenClub}'>Update Club</a></li>";
+        $_ChosenClub = $_GET['ID'];
+
+        if ((int)$_currentUser == (int)$_ChosenClub) {
+            echo "<li><a href='updateClub.php/?ID={$_ChosenClub}'>Update Club</a></li>";
+        }
     }
 
     $sql = "SELECT * FROM club where clubID ='" . $_selected_club . "'";
