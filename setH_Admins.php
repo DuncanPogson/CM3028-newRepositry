@@ -2,13 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: duncanpogson
- * Date: 10/12/2016
- * Time: 13:52
+ * Date: 12/12/2016
+ * Time: 01:49
  */
-
 session_start();
 
-if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 4)) //Session exists and access level is high enough to set pairings
+if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 4)) //Session exists and access level is high enough to set admins
 {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         include("header.php");
@@ -21,10 +20,10 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         </head>
         <main>
             <form action="setAdmins.php" method="post">
-                <input type="number" name="clubForAdmin" placeholder="ClubID">
-                <br>
-                <input type="number" name="newClubAdmin" placeholder="UserID" ><br>
-                <input type="submit" value="Set Admins">
+                <input type="number" name="userForUpdate" placeholder="UserID">
+                <br/>
+                <input type="number" name="newAccessLvl" placeholder="new Access Level: 1 - 4" min="1" max="4">
+                <input type="submit" value="Update Admins">
             </form>
         </main>
 
@@ -46,33 +45,17 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         }
 
-        echo""."<br/>"."All Clubs:"."<br/>"."";
-        $sqlClub = "SELECT * FROM club ";
-        $clubResult = $conn->query($sqlClub);
-
-        while($clubRow = $clubResult->fetch_array())
-        {
-            $clubName = $clubRow['clubName'];
-            $clubID = $clubRow['clubID'];
-            $currentAdmin = $clubRow['userID'];
-
-
-            echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
-
-        }
-
-
         include("footer.php");
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         include("Database/LoginSystem/DB_Connect.php");
 
-        //Adding new admin to club
-        $_ClubForAdmin = $_POST['clubForAdmin'];
-        $_AdminForClub = $_POST["newClubAdmin"];
+        //Setting update for users
+        $_UserAccLvl = $_POST['userForUpdate'];
+        $_newAccLvl = $_POST["newAccessLvl"];
 
-        $sql = "UPDATE club SET userID ='" . $_AdminForClub ."' WHERE clubID ='" . $_ClubForAdmin . "'";
+        $sql = "UPDATE users SET accessLevel ='" . $_newAccLvl ."' WHERE userID ='" . $_UserAccLvl . "'";
 
         if (mysqli_query($conn, $sql)) {
             header("location:sportlethen.php");
