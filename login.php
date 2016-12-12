@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     <main>
         <form action="login.php" method="post">
             Name:<br>
-            <input type="text" name="login_username" placeholder="Username">
+            <input type="text" name="login_username" placeholder="Username" maxlength="30" pattern="[a-zA-Z0-9\s]+">
             <br>
             Password:<br>
-            <input type="password" name="login_password" placeholder="Password">
+            <input type="password" name="login_password" placeholder="Password" maxlength="255" pattern="[a-zA-Z0-9 ]+">
             <br><br>
             <p><input type="submit" value="Login"></p>
         </form>
