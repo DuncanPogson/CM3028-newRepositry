@@ -73,7 +73,7 @@ while($row = $result->fetch_array()) {
 
 } else {
     // not admin
-    header("location:home.php");
+    //header("location:home.php");
     print('You must be an admin to create an event');
 }
 
