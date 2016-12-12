@@ -73,8 +73,8 @@ $counter = 0;
 ?>
 <?php
 if (isset($_GET['add'])){
-    $title = htmlentities($_POST['txttitle']);
-    $detail = htmlentities($_POST['txtdetail']);
+    $title = $_POST['txttitle'];
+    $detail = $_POST['txtdetail'];
 
     $eventdate = $day."/".$month."/".$year;
 
