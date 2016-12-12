@@ -24,8 +24,8 @@ include ("header.php");
 
     $_ChosenClub = $_GET['ID'];
 
-    if ($userResult == $_ChosenClub) {
-        echo "<li><a href='updateClub.php'>Update Club</a></li>";
+    if ((int)$userResult = (int)$_ChosenClub) {
+        echo "<li><a href='updateClub.php/?ID={$_ChosenClub}'>Update Club</a></li>";
     }
 
     $sql = "SELECT * FROM club where clubID ='" . $_selected_club . "'";
