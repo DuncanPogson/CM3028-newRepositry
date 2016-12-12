@@ -31,10 +31,15 @@ include("header.php");
             <p><input type="submit" value="Create Event"></p>
         </form>
     </main>
-<?php
+    </html>
+<?
 
-include("Database/LoginSystem/DB_Connect.php");
+include("footer.php");
 include ("calendar.php");
+
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //connect to the database
+    include("Database/LoginSystem/DB_Connect.php");
 
     $_eventName = $_POST["event_name"];
     $_date = $_POST["event_date"];
@@ -45,19 +50,34 @@ include ("calendar.php");
         $_description . "')";
 
 
-$sql_query = "SELECT * FROM event";
+//$sql_query = "SELECT * FROM event";
     
-$result = $conn->query($sql_query);
+//$result = $conn->query($sql_query);
 
-while($row = $result->fetch_array()) {
+//while($row = $result->fetch_array()) {
 
-    echo "{{$row['eventName']}</h2>
- <p>{$row['date']} AT {$row['time']}</p>
- <p>{$row['description']}</p>
-";
+    //echo "{{$row['eventName']}</h2>
+ //<p>{$row['date']} AT {$row['time']}</p>
+ //<p>{$row['description']}</p>
+//";
+//}
+
+    if (mysqli_query($conn, $sql)) {
+        header("location:home.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "cannot create event, please try again later.";
+    }
 }
 
-echo "<a href='events.php'>Create Event</a>";
 
-include("footer.php");
+} else {
+    // not admin
+    header("location:home.php");
+    print('You must be an admin to create an event');
+}
 
+//echo "<a href='events.php'>Create Event</a>";
+
+//include("footer.php");
+?>
