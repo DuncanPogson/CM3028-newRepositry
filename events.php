@@ -25,6 +25,7 @@ error_reporting(E_ALL);
 <?php
 
 include("Database/LoginSystem/DB_Connect.php");
+include ("calendar.php");
 
 $sql_query = "SELECT * FROM event";
     
