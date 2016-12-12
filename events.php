@@ -64,7 +64,8 @@ if (isset($_SESSION['login_username'])) //Session exists
             echo "cannot create club, please try again later.";
         }
     }
-}
+
+
 
 
 } else {
