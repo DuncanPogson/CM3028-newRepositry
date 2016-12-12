@@ -56,7 +56,7 @@ while($row = $result->fetch_array()) {
 }
 
         if (mysqli_query($conn, $sql)) {
-            header("location:home.php");
+//            header("location:home.php");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "cannot create club, please try again later.";
@@ -68,7 +68,7 @@ while($row = $result->fetch_array()) {
 
 } else {
     // not admin
-    header("location:home.php");
+//    header("location:home.php");
     print('You must be an admin to add a club');
 }
 
