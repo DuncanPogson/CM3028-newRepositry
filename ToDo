@@ -5,6 +5,7 @@ Create the club page-
 php to take images from the database using the club id and create a gallery
 create a php form to add/create a new club
 help Daniel if stuck
+create an 'events' page for the health and wellbeing, a calendar which shows events,
 
 Duncan -
 Create list of clubs - WORKING
@@ -16,13 +17,12 @@ Implement access levels - WORKING
 Highest level of Admins Can set Admins for Clubs - WORKING
 Highest level of Admins Can set Admins for health news -WORKING
 Navigation - WORKING
-Club admins can update information -
+Club admins can update information -WORKING
 
 Paulius -
 css/bootstrap for entire site
 
 Pushon -
-create an 'events' page for the health and wellbeing, a calendar which shows events,
 health admins should be able to create events
 
 Daniel -
