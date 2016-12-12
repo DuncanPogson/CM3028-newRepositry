@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
+
 
 if (isset($_SESSION['login_username'])) //Session exists
 {
@@ -48,6 +48,22 @@ include ("calendar.php");
     $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_eventName . "', '" . $_date . "', '" . $_time . "', '" .
         $_description . "')";
 
+    while ($row = $result->fetch_array()) {
+        $_eventName = $row['event_name'];
+        $_date = $row['event_date'];
+        $_time = $row['event_time'];
+        $_description = $row['event_description'];
+
+
+        echo "
+        <article>
+            Event Name: {$_eventName} \n
+            Event Date: {$_date} \n
+            Event Time: {$_timeeventName} \n
+            Event Description: \n
+            {$_description}
+        </article>";
+    }
 
 //$sql_query = "SELECT * FROM event";
 
