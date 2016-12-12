@@ -40,69 +40,58 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     $_description = $row['description'];
 
 
-
                     //html code to collect user input in the a html form and create a health article from the info
-                ?>
+                    ?>
 
-                <head>
-                    <title>Set Access Level</title>
-                </head>
-                <main>
-                    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-                    <script>tinymce.init({selector: 'textarea'});</script>
-                    <form action="updateClub.php" method="post">
-                        Club Name:<br>
-                        <input type="text" name="clubNameUpdate" placeholder="<?php echo htmlspecialchars($_clubName); ?>">
-                        <br>
-                        <br>
-                        Club Genre:<br>
-                        <input type="text" name="clubGenreUpdate" placeholder="<?php echo htmlspecialchars($_clubGenre); ?>">
-                        <br>
-                        <br>
-                        Club Email:<br>
-                        <input type="text" name="clubEmailUpdate" placeholder="<?php echo htmlspecialchars($_clubEmail); ?>">
-                        <br>
-                        <br>
-                        Club Website:<br>
-                        <input type="text" name="clubWebsiteUpdate" placeholder="<?php echo htmlspecialchars($_clubWebsite); ?>">
-                        <br>
-                        <br>
-                        Contact Name:<br>
-                        <input type="text" name="contactNameUpdate" placeholder="<?php echo htmlspecialchars($_contactName); ?>">
-                        <br>
-                        <br>
-                        Contact Num:<br>
-                        <input type="text" name="contactNumberUpdate" placeholder="<?php echo htmlspecialchars($_contactNo); ?>">
-                        <br>
-                        <br>
-                        Description:<br>
-                        <textarea name="descriptionUpdate" placeholder="<?php echo htmlspecialchars($_description); ?>"></textarea>
-                        <br>
-                        <br>
-                        <input type="submit" value="Update Admins">
-                    </form>
-                </main>
+                    <head>
+                        <title>Set Access Level</title>
+                    </head>
+                    <main>
+                        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+                        <script>tinymce.init({selector: 'textarea'});</script>
+                        <form action="updateClub.php" method="post">
+                            Club Name:<br>
+                            <input type="text" name="clubNameUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_clubName); ?>">
+                            <br>
+                            <br>
+                            Club Genre:<br>
+                            <input type="text" name="clubGenreUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_clubGenre); ?>">
+                            <br>
+                            <br>
+                            Club Email:<br>
+                            <input type="text" name="clubEmailUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_clubEmail); ?>">
+                            <br>
+                            <br>
+                            Club Website:<br>
+                            <input type="text" name="clubWebsiteUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_clubWebsite); ?>">
+                            <br>
+                            <br>
+                            Contact Name:<br>
+                            <input type="text" name="contactNameUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_contactName); ?>">
+                            <br>
+                            <br>
+                            Contact Num:<br>
+                            <input type="text" name="contactNumberUpdate"
+                                   placeholder="<?php echo htmlspecialchars($_contactNo); ?>">
+                            <br>
+                            <br>
+                            Description:<br>
+                            <textarea name="descriptionUpdate"
+                                      placeholder="<?php echo htmlspecialchars($_description); ?>"></textarea>
+                            <br>
+                            <br>
+                            <input type="submit" value="Update Admins">
+                        </form>
+                    </main>
 
-                <?
-
-                //Listing all clubs/Users to make it easier for the club admin to select which user/club admin relationship they wish to create.
-                include("Database/LoginSystem/DB_Connect.php");
-
-                echo""."<br/>"."All Users:"."<br/>"."";
-                $sql = "SELECT * FROM users ";
-                $result = $conn->query($sql);
-
-                while($row = $result->fetch_array())
-                {
-                    $userName = $row['username'];
-                    $userID = $row['userID'];
-
-                    echo "<li>Username: {$userName}, User ID: {$userID}";
-
+                    <?
+                    include("footer.php");
                 }
-
-                include("footer.php");
-
             } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 include("Database/LoginSystem/DB_Connect.php");
