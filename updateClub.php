@@ -161,8 +161,8 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 }
             }
 
-        }
-    }
+
+
 } else {
     // not admin
     header("location:/home.php");
