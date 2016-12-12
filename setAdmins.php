@@ -75,7 +75,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         $_ClubForAdmin = $_SESSION['clubForAdmin'];
         $_AdminForClub = $_POST["newClubAdmin"];
 
-        $sql = "INSERT INTO club (userID) VALUES ('" . $_AdminForClub . "') WHERE clubID ='" . $_ClubForAdmin . "'";
+        $sql = "UPDATE club SET userID='" . $_AdminForClub ."' WHERE clubID='" . $_ClubForAdmin . "'";
 
         if (mysqli_query($conn, $sql)) {
             header("location:sportlethen.php");
