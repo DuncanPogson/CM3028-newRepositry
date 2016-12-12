@@ -22,19 +22,19 @@ include("../../header.php");
 
 <main>
     <form action="AddNewUser.php" method="post">
-        <input type="text" name="username" placeholder="Username" size="30"><br>
+        <input type="text" name="username" placeholder="Username" maxlength="30"><br>
         <br>
-        <input type="text" name="firstName" placeholder="First Name" size="30"><br>
+        <input type="text" name="firstName" placeholder="First Name" maxlength="30"><br>
         <br>
-        <input type="text" name="lastName" placeholder="Last Name" size="30"><br>
+        <input type="text" name="lastName" placeholder="Last Name" maxlength="30"><br>
         <br>
         <input type="date" name="dateOfBirth" placeholder="00/00/0000"><br>
         <br>
-        <input type="text" name="address" placeholder="Address" size="255"><br>
+        <input type="text" name="address" placeholder="Address" maxlength="255"><br>
         <br>
-        <input type="email" name="Email" placeholder="example@example.com" size="60"><br>
+        <input type="email" name="Email" placeholder="example@example.com" maxlength="60"><br>
         <br>
-        <input type="password" name="Password" placeholder="password" size="255"><br>
+        <input type="password" name="Password" placeholder="password" maxlength="255"><br>
         <br><br>
         <input type="submit" text="Submit">
     </form>
