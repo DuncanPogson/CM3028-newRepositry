@@ -143,7 +143,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 $sql = "UPDATE club SET clubName ='" . $final_clubName ."', genre ='" . $final_clubGenre . "', clubEmail ='" . $final_clubEmail . "', description ='" . $final_description . "', website ='" . $final_clubWebsite . "', contactName ='" . $final_contactName . "', contactNo ='" . $final_contactNo . "' WHERE clubID ='" . $_GET['selectClubID'] . "'";
 
                 if (mysqli_query($conn, $sql)) {
-                    header("location:sportlethen.php");
+                    header("location:/sportlethen.php");
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                     echo "pairing failed, please try again later.";
@@ -154,7 +154,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
     }
 } else {
     // not admin
-    header("location:home.php");
+    header("location:/home.php");
     print('You must be an admin to set Access Levels');
 }
 ?>
