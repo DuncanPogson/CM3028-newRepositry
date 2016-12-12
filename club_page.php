@@ -7,25 +7,7 @@
  */
 session_start();
 
-include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
-
-if (isset($_SESSION['login_username'])) {
-    $_curUser = $_SESSION['login_username'];
-    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_curUser . "'";
-    $userResult = $conn->query($_UserSql);
-    echo "User ID: " . $userResult . "";
-
-
-    $_ChosenClub = $_GET['ID'];
-    $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
-    $clubResult = $conn->query($_ClubSql);
-    echo "Club ID: " . $clubResult . "";
-
-    if ($userResult == $clubResult) {
-            echo "<li><a href='updateClub.php'>Update Club</a></li>";
-    }
-}
 
     if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
@@ -33,6 +15,19 @@ if (isset($_SESSION['login_username'])) {
     } else {
         // Fallback behaviour
         echo "Uh Oh, this club seems to be missing, please go back and pick another club.";
+    }
+
+    include ("Database/LoginSystem/DB_Connect.php");
+    $_curUser = $_SESSION['login_username'];
+    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_curUser . "'";
+    $userResult = $conn->query($_UserSql);
+
+    $_ChosenClub = $_GET['ID'];
+    $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
+    $clubResult = $conn->query($_ClubSql);
+
+    if ($userResult == $clubResult) {
+        echo "<li><a href='updateClub.php'>Update Club</a></li>";
     }
 
     $sql = "SELECT * FROM club where clubID ='" . $_selected_club . "'";
@@ -60,5 +55,6 @@ if (isset($_SESSION['login_username'])) {
             {$_description}
         </article>";
     }
+
 
 include ("footer.php");
