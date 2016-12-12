@@ -55,7 +55,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     <main>
                         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
                         <script>tinymce.init({selector: 'textarea'});</script>
-                        <form action="updateClub.php" method="post">
+                        <form action="/updateClub.php" method="post">
                             Club Name:<br>
                             <input type="text" name="clubNameUpdate" placeholder="<?php echo ($_clubName);?>">
                             <br>
