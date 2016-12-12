@@ -24,7 +24,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
                 <input type="number" name="userForUpdate" placeholder="UserID">
                 <br>
                 <br>
-                new Access Level: 1 - 4<br>
+                Access Level: 1 - 4<br>
                 <input type="number" name="newAccessLvl" placeholder="1" min="1" max="4">
                 <br>
                 <input type="submit" value="Update Admins">

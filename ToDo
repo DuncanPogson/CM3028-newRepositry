@@ -13,8 +13,8 @@ Sign up - Sign in - make them add and read from the database - WORKING
 take information from the database using the selected club. - WORKING
 Implement a php form for admins to create new health articles - WORKING
 Implement access levels - WORKING
-Highest level of Admins Can set Admins for Clubs - Working
-Highest level of Admins Can set Admins for health news -
+Highest level of Admins Can set Admins for Clubs - WORKING
+Highest level of Admins Can set Admins for health news -WORKING
 Fix Navigation - WORKING
 Search by club name/genre in list of clubs -
 Club admins can update information -
