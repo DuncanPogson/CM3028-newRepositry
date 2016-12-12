@@ -39,6 +39,16 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     $_contactNo = $row['contactNo'];
                     $_description = $row['description'];
 
+                    echo "<article>
+                            Title: {$_clubName} \n
+                            Genre: {$_clubGenre} \n
+                            Contact Us: \n
+                            Contact Name: {$_contactName} \n
+                            Email: {$_clubEmail} \n
+                            Website: {$_clubWebsite} \n
+                            Phone Number: {$_contactNo} \n
+                            Description: \n{$_description}
+                        </article>";
 
                     //html code to collect user input in the a html form and create a health article from the info
                     ?>
@@ -51,7 +61,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                         <script>tinymce.init({selector: 'textarea'});</script>
                         <form action="updateClub.php" method="post">
                             Club Name:<br>
-                            <input type="text" name="clubNameUpdate" placeholder="<?php echo $_clubName;?>">
+                            <input type="text" name="clubNameUpdate" placeholder="<?php echo ($_clubName);?>">
                             <br>
                             <br>
                             Club Genre:<br>
