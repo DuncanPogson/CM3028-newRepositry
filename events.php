@@ -66,11 +66,11 @@ while($row = $result->fetch_array()) {
 
 
 
-}// else {
-    // not admin
-//    header("location:home.php");
-//    print('You must be an admin to add a club');
-//}
+} else {
+    /. not admin
+    header("location:home.php");
+    print('You must be an admin to add a club');
+}
 
 
 ?>
