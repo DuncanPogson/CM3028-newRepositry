@@ -97,9 +97,9 @@ session_start();
             <li><a href="/contact.php">Contact</a></li>
             <?
             if (isset($_SESSION['login_username'])) {
-                echo "<li><a href='logout.php'>Logout</a></li>";
+                echo "<li><a href='/logout.php'>Logout</a></li>";
             } else {
-                echo "<li><a href='login.php'>Login</a></li>";
+                echo "<li><a href='/login.php'>Login</a></li>";
             }
             ?>
         </ul>
