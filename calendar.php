@@ -29,12 +29,18 @@
             document.location.href = "<?php $_SERVER['PHP_SELF'];?>?month="+monthstring+"&year="+year;
         }
 
+
+
     </script>
+
+
+
 
 </head>
 
 <body>
 <?php
+/*
 if (isset($_GET['day'])){
     $day = $_GET['day'];
 }else{
@@ -51,11 +57,13 @@ if (isset($_GET['year'])){
     $year = date("Y");
 }
 
+
 // calender variable //
 $currentTimeStamp = strtotime("$year-$month-$day");
 $monthName = date("F", $currentTimeStamp);
 $numDays = date("t", $currentTimeStamp);
 $counter = 0;
+*/
 ?>
 
 <table border='1'>
@@ -105,12 +113,13 @@ $counter = 0;
 
 </table>
 <?php
-    if (isset($_GET['v'])){
+/*if (isset($_GET['v'])){
         echo "<a href='".$_SERVER['PHP_SELF']."?month=".$month."&day=".$day."&year=".$year."&v=true&f=true'> Add Event </a>";
         if (isset($_GET['f'])){
             include ("events.php");
         }
     }
+*/
 ?>
 
 </body>
