@@ -153,6 +153,8 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
                 $sql = "UPDATE club SET clubName ='" . $final_clubName ."', genre ='" . $final_clubGenre . "', clubEmail ='" . $final_clubEmail . "', description ='" . $final_description . "', website ='" . $final_clubWebsite . "', contactName ='" . $final_contactName . "', contactNo ='" . $final_contactNo . "' WHERE clubID ='" . $_clubID . "'";
 
+                unset ($_SESSION['login_username'],$_SESSION['AccessLevel'],$_SESSION['clubID'], $_SESSION['clubName'], $_SESSION['genre'], $_SESSION['clubEmail'], $_SESSION['website'], $_SESSION['contactName'], $_SESSION['contactNo'], $_SESSION['description']);
+
                 if (mysqli_query($conn, $sql)) {
                     header("location:/sportlethen.php");
                 } else {
