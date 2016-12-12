@@ -56,8 +56,8 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         include("Database/LoginSystem/DB_Connect.php");
 
         //Setting update for users
-        $_UserAccLvl = $_POST['userForUpdate'];
-        $_newAccLvl = $_POST["newAccessLvl"];
+        $_UserAccLvl = htmlentities($_POST['userForUpdate']);
+        $_newAccLvl = htmlentities($_POST["newAccessLvl"]);
 
         $sql = "UPDATE users SET accessLevel ='" . $_newAccLvl ."' WHERE userID ='" . $_UserAccLvl . "'";
 

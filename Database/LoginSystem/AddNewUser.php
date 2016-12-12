@@ -8,13 +8,13 @@
 
 include("DB_Connect.php");
 
-$_username = $_POST["username"];
-$_email = $_POST["Email"];
-$_password = $_POST["Password"];
-$_dateOfBirth = $_POST["dateOfBirth"];
-$_address = $_POST["address"];
-$_firstName = $_POST["firstName"];
-$_lastName = $_POST["lastName"];
+$_username = htmlentities($_POST["username"]);
+$_email = htmlentities($_POST["Email"]);
+$_password = htmlentities($_POST["Password"]);
+$_dateOfBirth = htmlentities($_POST["dateOfBirth"]);
+$_address = htmlentities($_POST["address"]);
+$_firstName = htmlentities($_POST["firstName"]);
+$_lastName = htmlentities($_POST["lastName"]);
 $_accessLevel = 1;
 
 

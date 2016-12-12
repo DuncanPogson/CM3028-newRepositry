@@ -45,9 +45,9 @@ if (isset($_SESSION['login_username'])) //Session exists
         include("Database/LoginSystem/DB_Connect.php");
 
         $_author = $_SESSION['login_username'];
-        $_ha_title = $_POST["articleTitle"];
-        $_ha_importance = $_POST["ha_importance"];
-        $_ha_content = $_POST["articleText"];
+        $_ha_title = htmlentities($_POST["articleTitle"]);
+        $_ha_importance = htmlentities($_POST["ha_importance"]);
+        $_ha_content = htmlentities($_POST["articleText"]);
 
 
         $sql = "INSERT INTO healthnews (title, content, importance, username) VALUES ('" . $_ha_title . "', '" . $_ha_content . "', '" . $_ha_importance . "', '" . $_author . "')";

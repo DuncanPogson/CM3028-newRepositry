@@ -141,8 +141,8 @@ $first_part = $components[1];
                     //connect to the database
                     include("Database/LoginSystem/DB_Connect.php");
                     //saving user input as variables
-                    $_username = $_POST["login_username"];
-                    $_password = $_POST["login_password"];
+                    $_username = htmlentities($_POST["login_username"]);
+                    $_password = htmlentities($_POST["login_password"]);
 
                     function check_login($_username, $_password, $conn)
                     {
