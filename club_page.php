@@ -11,7 +11,7 @@ include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
 if (isset($_SESSION['login_username'])) {
-    $_curUser = $_GET['login_username'];
+    $_curUser = $_SESSION['login_username'];
     $_UserSql = "SELECT userID FROM users WHERE username = '" . $_curUser . "'";
     $userResult = $conn->query($_UserSql);
     echo "User ID: " . $userResult . "";
@@ -22,7 +22,7 @@ if (isset($_SESSION['login_username'])) {
     $clubResult = $conn->query($_ClubSql);
     echo "Club ID: " . $clubResult . "";
 
-    if (((int)$userResult) == ((int)$clubResult)) {
+    if ($userResult == $clubResult) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
     }
 }
