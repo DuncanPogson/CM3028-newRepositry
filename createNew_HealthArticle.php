@@ -24,13 +24,13 @@ if (isset($_SESSION['login_username'])) //Session exists
             <script>tinymce.init({selector: 'textarea'});</script>
             <form action="createNew_HealthArticle.php" method="post">
                 Article Title: <br>
-                <input type="text" name="articleTitle" placeholder="Article Title">
+                <input type="text" name="articleTitle" placeholder="Article Title" maxlength="30" pattern="[a-zA-Z0-9 ]+">
                 <br>
                 Article Importance: <br>
-                <input type="number" name="ha_importance" placeholder="0" ><br>
+                <input type="number" name="ha_importance" placeholder="0" min="0" max="5"><br>
                 <br>
                 Content: <br>
-                <textarea name="articleText"></textarea>
+                <textarea name="articleText" maxlength="256" pattern="[a-zA-Z0-9 ]+"></textarea>
                 <br><br>
                 <input type="submit" value="Post">
             </form>

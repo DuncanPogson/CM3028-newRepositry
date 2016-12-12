@@ -44,8 +44,9 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         {
             $userName = $row['username'];
             $userID = $row['userID'];
+            $userAccessLvl = $row['accessLevel'];
 
-            echo "<li>Username: {$userName}, User ID: {$userID}";
+            echo "<li>Username: {$userName}, User ID: {$userID}, Access Level: {$userAccessLvl}";
 
         }
 

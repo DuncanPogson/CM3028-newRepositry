@@ -18,25 +18,25 @@ if (isset($_SESSION['login_username'])) //Session exists
         <main>
             <form action="createNew_club.php" method="post">
                 Club Name:<br>
-                <input type="text" name="club_name" placeholder="Club Name">
+                <input type="text" name="club_name" placeholder="Club Name"  maxlength="60" pattern="[a-zA-Z0-9 ]+">
                 <br><br>
                 Club Genre:<br>
-                <input type="text" name="club_genre" placeholder=" Club Genre">
+                <input type="text" name="club_genre" placeholder="Club Genre" maxlength="30" pattern="[a-zA-Z ]+">
                 <br><br>
                 Club Email:<br>
-                <input type="text" name="club_email" placeholder="Club Email">
+                <input type="text" name="club_email" placeholder="Club Email"maxlength="60" pattern="[a-zA-Z0-9@ ]+">
                 <br><br>
                 Club Description:<br>
-                <input type="text" name="club_description" placeholder="Description of Club">
+                <input type="text" name="club_description" placeholder="Description of Club" maxlength="256" pattern="[a-zA-Z0-9 ]+">
                 <br><br>
                 Club Website:<br>
-                <input type="text" name="club_website" placeholder="Club Website">
+                <input type="text" name="club_website" placeholder="Club Website" maxlength="256" pattern="[a-zA-Z0-9 ]+">
                 <br><br>
                 Club Contact:<br>
-                <input type="text" name="club_contact" placeholder="Contact Name">
+                <input type="text" name="club_contact" placeholder="Contact Name" maxlength="60" pattern="[a-zA-Z ]+">
                 <br><br>
                 Club Contact No:<br>
-                <input type="number" name="club_contactNo" placeholder="Contact Number">
+                <input type="number" name="club_contactNo" placeholder="Contact Number" maxlength="14" pattern="[0-9+ ]+">
                 <br><br>
                 <p><input type="submit" value="Create Club"></p>
             </form>
