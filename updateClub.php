@@ -19,7 +19,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
         $_currentUser = $row['clubID'];
 
-        $_ChosenClub = $_GET['ID'];
+        $_ChosenClub = $_GET['selectClubID'];
 
         if ((int)$_currentUser == (int)$_ChosenClub) {
 
@@ -85,7 +85,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                                       placeholder="<?php echo htmlspecialchars($_description); ?>"></textarea>
                             <br>
                             <br>
-                            <input type="submit" value="Update Admins">
+                            <input type="submit" value="Update Club">
                         </form>
                     </main>
 
