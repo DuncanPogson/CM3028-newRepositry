@@ -10,7 +10,7 @@ session_start();
 include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
-if (isset($_SESSION['login_username'])) {
+//if (isset($_SESSION['login_username'])) {
 
     //$_curUser = $_GET['login_username'];
 
@@ -27,7 +27,7 @@ if (isset($_SESSION['login_username'])) {
     if (((int)$userResult) == ((int)$clubResult)) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
     }
-}
+//}
 
     if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
