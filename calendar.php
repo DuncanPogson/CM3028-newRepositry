@@ -1,5 +1,10 @@
 <?php
-include ("Database/LoginSystem/DB_Connect.php");
+//include ("Database/LoginSystem/DB_Connect.php");
+$servername = "eu-cdbr-azure-north-e.cloudapp.net";
+$username = "b4defdb830e2bc";
+$password = "44f41f1c";
+$dbname = "cm3028_groupd3_db";
+
 ?>
 
 <html>
