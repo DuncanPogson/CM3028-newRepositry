@@ -57,7 +57,7 @@ include("header.php");
  //<p>{$row['description']}</p>
 //";
 //}
-    echo "$_event_date";
+//    echo "$_event_date";
 
     if (mysqli_query($conn, $sql)) {
 //       header("location:home.php");
@@ -68,11 +68,11 @@ include("header.php");
 }
 
 
-} else {
+/*} else {
     // not admin
-//    header("location:home.php");
+    header("location:home.php");
     print('You must be an admin to add a club');
 }
-
+*/
 
 ?>
