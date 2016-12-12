@@ -3,29 +3,47 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-/**
 
- **/
+session_start();
+
+if (isset($_SESSION['login_username'])) //Session exists
+{
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+include("header.php");
+
+
+
 ?>
-<form name='eventform' method="post" action="<?php $_SERVER['PHP_SELF']; ?>?month=<?php echo $month;?>&day=<?php echo $day;?>&year=<?php echo $year;?>&v=true&add=true">
-    <table width="400px">
-        <tr>
-            <td width="150px">Title</td>
-            <td width="250px"><input type="text" name="txttitle"></td>
-        </tr>
-        <tr>
-            <td width="150px">Detail</td>
-            <td width="250px"><textarea name="txtdetail"></textarea></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center"><input type="submit" name="btnadd" value="Add Event"></td>
-        </tr>
-    </table>
-</form>
+    <main>
+        <form action="events.php" method="post">
+            Event Name:<br>
+            <input type="text" name="event_name" placeholder="Event Name">
+            <br><br>
+            Date:<br>
+            <input type="date" name="event_date" placeholder="Date">
+            <br><br>
+            Time:<br>
+            <input type="time" name="event_time" placeholder="Time">
+            <br><br>
+            Event Description:<br>
+            <input type="text" name="event_description" placeholder="Description of Event">
+            <br><br>
+            <p><input type="submit" value="Create Event"></p>
+        </form>
+    </main>
 <?php
 
 include("Database/LoginSystem/DB_Connect.php");
 include ("calendar.php");
+
+    $_eventName = $_POST["event_name"];
+    $_date = $_POST["event_date"];
+    $_time = $_POST["event_time"];
+    $_description = $_POST["event_description"];
+
+    $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_eventName . "', '" . $_date . "', '" . $_time . "', '" .
+        $_description . "')";
+
 
 $sql_query = "SELECT * FROM event";
     
@@ -33,7 +51,7 @@ $result = $conn->query($sql_query);
 
 while($row = $result->fetch_array()) {
 
-    echo "{$row['eventID']} - {$row['eventName']}</h2>
+    echo "{{$row['eventName']}</h2>
  <p>{$row['date']} AT {$row['time']}</p>
  <p>{$row['description']}</p>
 ";
