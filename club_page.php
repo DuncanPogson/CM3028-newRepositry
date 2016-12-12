@@ -26,7 +26,7 @@ if (isset($_SESSION['login_username'])) {
     if (((int)$userResult) == ((int)$clubResult)) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
     }
-//}
+}
 
     if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
