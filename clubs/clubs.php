@@ -36,7 +36,7 @@
 <?php
 session_start();
 include ("../Database/LoginSystem/DB_Connect.php");
-include ("../calendar_start.php");
+include ("../calendar.php");
 include ("../header.php");
 
 ?>
@@ -111,7 +111,6 @@ include ("../header.php");
 <li><a href='../club_page.php/?ID={$clubID}'>{$clubName}</a> Contact: {$clubEmail}, Genre: {$clubGenre}. </li>
                 </ul>";
             }
-
 
 
 ?>
