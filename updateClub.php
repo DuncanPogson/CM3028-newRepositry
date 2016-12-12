@@ -60,35 +60,35 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                                 <script>tinymce.init({selector: 'textarea'});</script>
                                 <form action="updateClub.php" method="post">
                                     Club Name:<br>
-                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo htmlentities($_clubName); ?>">
+                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo ($_clubName); ?>">
                                     <br>
                                     <br>
                                     Club Genre:<br>
-                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo htmlentities($_clubGenre); ?>">
+                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo ($_clubGenre); ?>">
                                     <br>
                                     <br>
                                     Club Email:<br>
-                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo htmlentities($_clubEmail); ?>">
+                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo ($_clubEmail); ?>">
                                     <br>
                                     <br>
                                     Club Website:<br>
                                     <input type="text" name="clubWebsiteUpdate"
-                                           placeholder="<?php echo htmlentities($_clubWebsite); ?>">
+                                           placeholder="<?php echo ($_clubWebsite); ?>">
                                     <br>
                                     <br>
                                     Contact Name:<br>
                                     <input type="text" name="contactNameUpdate"
-                                           placeholder="<?php echo htmlentities($_contactName); ?>">
+                                           placeholder="<?php echo ($_contactName); ?>">
                                     <br>
                                     <br>
                                     Contact Num:<br>
                                     <input type="text" name="contactNumberUpdate"
-                                           placeholder="<?php echo htmlentities($_contactNo); ?>">
+                                           placeholder="<?php echo ($_contactNo); ?>">
                                     <br>
                                     <br>
                                     Description:<br>
                                     <textarea name="descriptionUpdate"
-                                              placeholder="<?php echo htmlentities($_description); ?>"></textarea>
+                                              placeholder="<?php echo ($_description); ?>"></textarea>
                                     <br>
                                     <br>
                                     <input type="submit" value="Update Club">
