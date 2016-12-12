@@ -11,7 +11,15 @@ session_start();
 
 include ("header.php");
 include ("Database/LoginSystem/DB_Connect.php");
-include ("calendar.php");
+
+//include ("calendar.php");
+
+if (isset($_SESSION['login_username'])) {
+    if (((int)$_SESSION['AccessLevel']) >= 4) {
+        echo "<li><a href='setAdmins.php'>Set Club Admins</a></li>";
+    }
+}
+
 echo "
 
 <main>
