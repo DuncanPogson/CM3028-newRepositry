@@ -46,9 +46,9 @@ include("header.php");
     $_event_time = $_POST["event_time"];
     $_event_description = $_POST["event_description"];
 
-    $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_event_name . "', '" . $_event_date . "', '" . $_event_time . "', '" .
+    $sql = "INSERT INTO event (eventName, eventDate, eventTime, description) VALUES ('" . $_event_name . "', '" . $_event_date . "', '" . $_event_time . "', '" .
         $_event_description . "')";
-    $result = $conn->query($sql_query);
+
 
 //while($row = $result->fetch_array()) {
 
