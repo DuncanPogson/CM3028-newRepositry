@@ -32,7 +32,7 @@ include("../../header.php");
         <br>
         <input type="text" name="address" placeholder="Address" maxlength="255" pattern="[a-zA-Z0-9 ]+"><br>
         <br>
-        <input type="email" name="Email" placeholder="example@example.com" maxlength="60"><br>
+        <input type="email" name="Email" placeholder="example@example.com" maxlength="60" pattern="[a-zA-Z0-9@ ]+"><br>
         <br>
         <input type="password" name="Password" placeholder="password" maxlength="255" pattern="[a-zA-Z0-9 ]+"><br>
         <br><br>
