@@ -57,7 +57,7 @@ $result = $conn->query($sql_query);
 
 while($row = $result->fetch_array()) {
 
-    echo "{{$row['eventName']}</h2>
+    <h2>echo "{{$row['eventName']}</h2>
  <p>{$row['date']} AT {$row['time']}</p>
  <p>{$row['description']}</p>
 ";
