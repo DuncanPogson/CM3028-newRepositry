@@ -14,7 +14,7 @@ if (isset($_SESSION['login_username'])) //Session exists
         include("header.php");
 
         ?>
-
+        <html>
         <main>
             <form action="createNew_club.php" method="post">
                 Club Name:<br>
@@ -41,7 +41,7 @@ if (isset($_SESSION['login_username'])) //Session exists
                 <p><input type="submit" value="Create Club"></p>
             </form>
         </main>
-        </html>
+       </html>
         <?
         //
         include("footer.php");
