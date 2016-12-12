@@ -20,7 +20,6 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
     $sql = "SELECT userID FROM club WHERE ";
     $clubResult = $conn->query($sql);
 
-
     if($userResult == $clubResult){
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
