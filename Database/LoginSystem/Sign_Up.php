@@ -22,7 +22,7 @@ include("../../header.php");
 
 <main>
     <form action="AddNewUser.php" method="post">
-        <input type="text" name="username" placeholder="Username" maxlength="30" pattern="[a-zA-Z0-9 ]+"><br>
+        <input type="text" name="username" placeholder="Username" maxlength="30" pattern="[a-zA-Z0-9\s]+"><br>
         <br>
         <input type="text" name="firstName" placeholder="First Name" maxlength="30" pattern="[a-zA-Z0-9 ]+"><br>
         <br>
