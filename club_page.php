@@ -60,5 +60,31 @@ include ("header.php");
         </article>";
     }
 
+$sql = "SELECT * FROM photo where clubID ='" . $_selected_club . "'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()) {
+    $_caption = $row['caption'];
+    $_url = $row['url'];
+
+    echo "<table>";
+
+    while($row = $result->fetch_array()) {
+
+        echo "<tr>";
+        echo "<td>";?> <img src="<?php echo $row["url"]; ?>" <height="100" width="100"> <?php echo "</td>";
+        echo "<td>"; echo $row["caption"]; echo "</td>";
+
+        echo "</tr>";
+
+    }
+    echo "</table>";
+
+
+
+
+
+
+}
 
 include ("footer.php");
