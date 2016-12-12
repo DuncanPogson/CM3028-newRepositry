@@ -1,10 +1,10 @@
-<?php
+ <?php
 //include("header.php");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+ session_start();
 
 if (isset($_SESSION['login_username'])) //Session exists
 {
@@ -48,18 +48,18 @@ if (isset($_SESSION['login_username'])) //Session exists
         $sql = "INSERT INTO event (eventName, eventDate, eventTime, description) VALUES ('" . $_event_name . "', '" . $_event_date . "', '" . $_event_time . "', '" .
             $_event_description . "')";
 
-while($row = $result->fetch_array()) {
+/*while($row = $result->fetch_array()) {
 
          echo "{{$row['eventName']}
         <p>{$row['date']} AT {$row['time']}</p>
         <p>{$row['description']}}</p>";
 }
-
+*/
         if (mysqli_query($conn, $sql)) {
             header("location:home.php");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            echo "cannot create club, please try again later.";
+            echo "cannot create event, please try again later.";
         }
     }
 
