@@ -60,30 +60,30 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                                 <script>tinymce.init({selector: 'textarea'});</script>
                                 <form action="updateClub.php" method="post">
                                     Club Name:<br>
-                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo ($_clubName); ?>">
+                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo $_clubName; ?>">
                                     <br>
                                     <br>
                                     Club Genre:<br>
-                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo ($_clubGenre); ?>">
+                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo $_clubGenre; ?>">
                                     <br>
                                     <br>
                                     Club Email:<br>
-                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo ($_clubEmail); ?>">
+                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo $_clubEmail; ?>">
                                     <br>
                                     <br>
                                     Club Website:<br>
                                     <input type="text" name="clubWebsiteUpdate"
-                                           placeholder="<?php echo ($_clubWebsite); ?>">
+                                           placeholder="<?php echo $_clubWebsite; ?>">
                                     <br>
                                     <br>
                                     Contact Name:<br>
                                     <input type="text" name="contactNameUpdate"
-                                           placeholder="<?php echo ($_contactName); ?>">
+                                           placeholder="<?php echo $_contactName; ?>">
                                     <br>
                                     <br>
                                     Contact Num:<br>
                                     <input type="text" name="contactNumberUpdate"
-                                           placeholder="<?php echo ($_contactNo); ?>">
+                                           placeholder="<?php echo $_contactNo; ?>">
                                     <br>
                                     <br>
                                     Description:<br>
@@ -105,13 +105,13 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 include("Database/LoginSystem/DB_Connect.php");
 
                 //Setting update for users
-                $new_clubName = htmlentities ($_POST['$_clubName']);
-                $new_clubGenre = htmlentities ($_POST['clubGenreUpdate']);
-                $new_clubEmail = htmlentities ($_POST['clubEmailUpdate']);
-                $new_clubWebsite = htmlentities ($_POST['clubWebsiteUpdate']);
-                $new_contactName = htmlentities ($_POST['contactNameUpdate']);
-                $new_contactNo = htmlentities ($_POST['contactNumberUpdate']);
-                $new_description = htmlentities ($_POST['descriptionUpdate']);
+                $new_clubName = htmlentities($_POST['$_clubName']);
+                $new_clubGenre = htmlentities($_POST['clubGenreUpdate']);
+                $new_clubEmail = htmlentities($_POST['clubEmailUpdate']);
+                $new_clubWebsite = htmlentities($_POST['clubWebsiteUpdate']);
+                $new_contactName = htmlentities($_POST['contactNameUpdate']);
+                $new_contactNo = htmlentities($_POST['contactNumberUpdate']);
+                $new_description = htmlentities($_POST['descriptionUpdate']);
 
                 if($new_clubName != null) {
                     $final_clubName = $new_clubName;
