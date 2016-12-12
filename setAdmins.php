@@ -72,10 +72,10 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         include("Database/LoginSystem/DB_Connect.php");
 
         //Adding new admin to club
-        $_ClubForAdmin = $_SESSION['clubForAdmin'];
+        $_ClubForAdmin = $_POST['clubForAdmin'];
         $_AdminForClub = $_POST["newClubAdmin"];
 
-        $sql = "UPDATE club SET userID='" . $_AdminForClub ."' WHERE clubID='" . $_ClubForAdmin . "'";
+        $sql = "UPDATE club SET userID ='" . $_AdminForClub ."' WHERE clubID ='" . $_ClubForAdmin . "'";
 
         if (mysqli_query($conn, $sql)) {
             header("location:sportlethen.php");
