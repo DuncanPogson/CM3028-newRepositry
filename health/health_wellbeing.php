@@ -150,6 +150,7 @@ session_start();
 
 include("../Database/LoginSystem/DB_Connect.php");
 include("../header.php");
+include("../calendar.php");
 
 echo "
 <main>

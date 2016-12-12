@@ -15,9 +15,6 @@ if (isset($_SESSION['login_username'])) //Session exists
         <html>
         <main>
             <form action="events.php" method="post">
-                <br>
-                <br>
-                <br>
                 Event Name:<br>
                 <input type="text" name="event_name" placeholder="Event Name">
                 <br><br>
