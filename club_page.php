@@ -67,23 +67,20 @@ while ($row = $result->fetch_array()) {
     $_caption = $row['caption'];
     $_url = $row['url'];
 
-    echo "<table>";
 
+
+    echo "<table>";
     while($row = $result->fetch_array()) {
 
         echo "<tr>";
         echo "<td>";?> <img src="<?php echo $row["url"]; ?>" <height="100" width="100"> <?php echo "</td>";
         echo "<td>"; echo $row["caption"]; echo "</td>";
 
-        echo "</tr>";
 
+
+        echo "</tr>";
     }
     echo "</table>";
-
-
-
-
-
 
 }
 
