@@ -16,10 +16,13 @@ if (isset($_SESSION['login_username'])) {
 
     $_UserSql = "SELECT userID FROM users WHERE username = '" . $_GET['login_username'] . "'";
     $userResult = $conn->query($_UserSql);
+    echo "User ID: " . $userResult . "";
+
 
     //$_ChosenClub = $_GET['ID'];
     $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_GET['ID'] . "'";
     $clubResult = $conn->query($_ClubSql);
+    echo "Club ID: " . $clubResult . "";
 
     if (((int)$userResult) == ((int)$clubResult)) {
             echo "<li><a href='updateClub.php'>Update Club</a></li>";
