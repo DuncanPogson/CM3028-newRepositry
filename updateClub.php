@@ -22,7 +22,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
                     $_currentUser = $row['clubID'];
 
-                    $_ChosenClub = html_entity_decode['selectClubID'];
+                    $_ChosenClub = ['selectClubID'];
 
                     if ((int)$_currentUser == (int)$_ChosenClub) {
 
