@@ -24,7 +24,7 @@ include ("header.php");
 
     $_ChosenClub = $_GET['ID'];
 
-    if ((int)$userResult = (int)$_ChosenClub) {
+    if ((int)$userResult == (int)$_ChosenClub) {
         echo "<li><a href='updateClub.php/?ID={$_ChosenClub}'>Update Club</a></li>";
     }
 
