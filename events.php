@@ -71,11 +71,11 @@ while($row = $result->fetch_array()) {
 }
 
 
-} else {
+} //else {
     // not admin
     //header("location:home.php");
-    print('You must be an admin to create an event');
-}
+    //print('You must be an admin to create an event');
+//}
 
 //echo "<a href='events.php'>Create Event</a>";
 
