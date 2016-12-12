@@ -7,6 +7,13 @@
  */
 //include the 'header'
 include ("header.php");
+
+if (isset($_SESSION['login_username'])) {
+    if (((int)$_SESSION['AccessLevel']) >= 4) {
+        echo "<li><a href='setH_Admins.php'>Set New Access Levels</a></li>";
+    }
+}
+
 //Welcome message to site visitors
 echo "
 <main>
