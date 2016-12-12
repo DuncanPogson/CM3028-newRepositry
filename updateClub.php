@@ -19,7 +19,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
         $_currentUser = $row['clubID'];
 
-        $_ChosenClub = $_GET['ID'];
+        $_ChosenClub = $_GET['selectClubID'];
 
         if ((int)$_currentUser == (int)$_ChosenClub) {
 
