@@ -113,37 +113,37 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 $new_contactNo = $_POST['contactNumberUpdate'];
                 $new_description = $_POST['descriptionUpdate'];
 
-                if($new_clubName == null) {
+                if($new_clubName != null) {
                     $final_clubName = $new_clubName;
                 }else{
                     $final_clubName = $_SESSION['clubName'];
                 }
-                if($new_clubGenre == null) {
+                if($new_clubGenre != null) {
                     $final_clubGenre = $new_clubGenre;
                 }else{
                     $final_clubGenre = $_SESSION['genre'];
                 }
-                if($new_clubEmail == null) {
+                if($new_clubEmail != null) {
                     $final_clubEmail = $new_clubEmail;
                 }else{
                     $final_clubEmail = $_SESSION['clubEmail'];
                 }
-                if($new_clubWebsite == null) {
+                if($new_clubWebsite != null) {
                     $final_clubWebsite = $new_clubWebsite;
                 }else{
                     $final_clubWebsite = $_SESSION['website'];
                 }
-                if($new_contactName == null) {
+                if($new_contactName != null) {
                     $final_contactName = $new_contactName;
                 }else{
                     $final_contactName = $_SESSION['contactName'];
                 }
-                if($new_contactNo == null) {
+                if($new_contactNo != null) {
                     $final_contactNo = $new_contactNo;
                 }else{
                     $final_contactNo = $_SESSION['contactNo'];
                 }
-                if($new_description == null) {
+                if($new_description != null) {
                     $final_description = $new_description;
                 }else{
                     $final_description = $_SESSION['description'];
