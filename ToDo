@@ -12,8 +12,11 @@ Allowing articles to be selected via the list - WORKING
 Sign up - Sign in - make them add and read from the database - WORKING
 take information from the database using the selected club. - WORKING
 Implement a php form for admins to create new health articles - WORKING
-Implement access levels
-Fix Navigation - Working
+Implement access levels - WORKING
+Highest level of Admins Can change Access Levels -
+Fix Navigation - WORKING
+Search by club name/genre in list of clubs -
+Club admins can update information -
 
 Paulius -
 css/bootstrap for entire site
@@ -28,5 +31,5 @@ implement the calendar on the clubs page
 help joe if he is stuck
 
 extra tasks -
-add an order by to the club list
+Contributors can create articles/events but they have to be okayed by a admin before they are used
 add security to the site

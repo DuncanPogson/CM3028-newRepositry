@@ -33,7 +33,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         <?
 
-        //connect to the database
+        //Listing all clubs/Users to make it easier for the club admin to select which user/club admin relationship they wish to create.
         include("Database/LoginSystem/DB_Connect.php");
 
         echo"/nAll Users:";
@@ -69,28 +69,26 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+        include("Database/LoginSystem/DB_Connect.php");
 
         //Adding new admin to club
-        //$_author = $_SESSION['login_username'];
-        //$_ha_title = $_POST["articleTitle"];
-        //$_ha_importance = $_POST["ha_importance"];
-        //$_ha_content = $_POST["articleText"];
+        $_ClubForAdmin = $_SESSION['clubForAdmin'];
+        $_AdminForClub = $_POST["newClubAdmin"];
 
+        $sql = "INSERT INTO club WHERE clubID ='" . $_ClubForAdmin . "' (userID) VALUES ('" . $_AdminForClub . "')";
 
-        //$sql = "INSERT INTO healthnews (title, content, importance, username) VALUES ('" . $_ha_title . "', '" . $_ha_content . "', '" . $_ha_importance . "', '" . $_author . "')";
-
-        //if (mysqli_query($conn, $sql)) {
-        //    header("location:home.php");
-        //} else {
-        //    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        //    echo "post failed, please try again later.";
-        //}
+        if (mysqli_query($conn, $sql)) {
+            header("location:sportlethen.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "pairing failed, please try again later.";
+        }
     }
 
 
 } else {
     // not admin
     header("location:home.php");
-    print('You must be an admin to set admins');
+    print('You must be an admin to create admin/club pairings');
 }
 ?>
