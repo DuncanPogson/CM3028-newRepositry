@@ -7,19 +7,18 @@
  */
 session_start();
 
-//include ("Database/LoginSystem/DB_Connect.php");
+include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
 if (isset($_SESSION['login_username'])) {
-    //$_curUser = $_GET['login_username'];
-    include ("Database/LoginSystem/DB_Connect.php");
-    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_SESSION['login_username'] . "'";
+    $_curUser = $_GET['login_username'];
+    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_curUser . "'";
     $userResult = $conn->query($_UserSql);
     echo "User ID: " . $userResult . "";
 
 
-    //$_ChosenClub = $_GET['ID'];
-    $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_GET['ID'] . "'";
+    $_ChosenClub = $_GET['ID'];
+    $_ClubSql = "SELECT userID FROM club WHERE clubID = '" . $_ChosenClub . "'";
     $clubResult = $conn->query($_ClubSql);
     echo "Club ID: " . $clubResult . "";
 
