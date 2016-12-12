@@ -13,12 +13,6 @@ include ("header.php");
 include ("Database/LoginSystem/DB_Connect.php");
 include ("calendar_start.php");
 
-if (isset($_SESSION['login_username'])) {
-    if (((int)$_SESSION['AccessLevel']) >= 4) {
-        echo "<li><a href='setAdmins.php'>Set Club Admins</a></li>";
-    }
-}
-
 echo "
 
 <main>
@@ -32,6 +26,12 @@ Our website is a single access point to find out more about the fantastic sporti
 which gave people the opportunity to take part in taster sessions of the different sports they can take up in the local area. </p>
 
 ";
+
+if (isset($_SESSION['login_username'])) {
+    if (((int)$_SESSION['AccessLevel']) >= 4) {
+        echo "<li><a href='setAdmins.php'>Set Club Admins</a></li>";
+    }
+}
 
 $sql = "SELECT * FROM club";
 $result = $conn->query($sql);
