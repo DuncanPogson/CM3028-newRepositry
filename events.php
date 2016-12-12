@@ -78,7 +78,7 @@ include ("calendar.php");
 //}
 
     if (mysqli_query($conn, $sql)) {
-        header("location:home.php");
+       
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         echo "cannot create club, please try again later.";
