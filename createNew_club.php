@@ -50,7 +50,6 @@ if (isset($_SESSION['login_username'])) //Session exists
         //connect to the database
         include("Database/LoginSystem/DB_Connect.php");
 
-        $_admin = $_SESSION['login_username'];
         $_club_name = $_POST["club_name"];
         $_club_genre = $_POST["club_genre"];
         $_club_email = $_POST["club_email"];
@@ -60,8 +59,8 @@ if (isset($_SESSION['login_username'])) //Session exists
         $_club_contactNo = $_POST["club_contactNo"];
 
 
-        $sql = "INSERT INTO club (clubName, genre, clubEmail, description, website, contactName, contactNo) VALUES ('" . $_club_name . "', '" . $_club_genre . "', '" . $_club_email . "', '" . $_club_description . "', '" .
-            $_club_description . "', '" . $_club_website . "', '" . $_club_contact . "', '" . $_club_contactNo . "', '" . $_admin . "')";
+        $sql = "INSERT INTO club (clubName, genre, clubEmail, description, website, contactName, contactNo) VALUES ('" . $_club_name . "', '" . $_club_genre . "', '" . $_club_email . "', '" .
+            $_club_description . "', '" . $_club_website . "', '" . $_club_contact . "', '" . $_club_contactNo . "')";
 
 
 
