@@ -22,7 +22,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
                     $_currentUser = $row['clubID'];
 
-                    $_ChosenClub = $_GET['selectClubID'];
+                    $_ChosenClub = html_entity_decode['selectClubID'];
 
                     if ((int)$_currentUser == (int)$_ChosenClub) {
 
@@ -60,35 +60,35 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                                 <script>tinymce.init({selector: 'textarea'});</script>
                                 <form action="updateClub.php" method="post">
                                     Club Name:<br>
-                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo($_clubName); ?>">
+                                    <input type="text" name="clubNameUpdate" placeholder="<?php echo htmlentities($_clubName); ?>">
                                     <br>
                                     <br>
                                     Club Genre:<br>
-                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo($_clubGenre); ?>">
+                                    <input type="text" name="clubGenreUpdate" placeholder="<?php echo htmlentities($_clubGenre); ?>">
                                     <br>
                                     <br>
                                     Club Email:<br>
-                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo($_clubEmail); ?>">
+                                    <input type="text" name="clubEmailUpdate" placeholder="<?php echo htmlentities($_clubEmail); ?>">
                                     <br>
                                     <br>
                                     Club Website:<br>
                                     <input type="text" name="clubWebsiteUpdate"
-                                           placeholder="<?php echo($_clubWebsite); ?>">
+                                           placeholder="<?php echo htmlentities($_clubWebsite); ?>">
                                     <br>
                                     <br>
                                     Contact Name:<br>
                                     <input type="text" name="contactNameUpdate"
-                                           placeholder="<?php echo($_contactName); ?>">
+                                           placeholder="<?php echo htmlentities($_contactName); ?>">
                                     <br>
                                     <br>
                                     Contact Num:<br>
                                     <input type="text" name="contactNumberUpdate"
-                                           placeholder="<?php echo($_contactNo); ?>">
+                                           placeholder="<?php echo htmlentities($_contactNo); ?>">
                                     <br>
                                     <br>
                                     Description:<br>
                                     <textarea name="descriptionUpdate"
-                                              placeholder="<?php echo($_description); ?>"></textarea>
+                                              placeholder="<?php echo htmlentities($_description); ?>"></textarea>
                                     <br>
                                     <br>
                                     <input type="submit" value="Update Club">
@@ -105,13 +105,13 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 include("Database/LoginSystem/DB_Connect.php");
 
                 //Setting update for users
-                $new_clubName = $_POST['$_clubName'];
-                $new_clubGenre = $_POST['clubGenreUpdate'];
-                $new_clubEmail = $_POST['clubEmailUpdate'];
-                $new_clubWebsite = $_POST['clubWebsiteUpdate'];
-                $new_contactName = $_POST['contactNameUpdate'];
-                $new_contactNo = $_POST['contactNumberUpdate'];
-                $new_description = $_POST['descriptionUpdate'];
+                $new_clubName = htmlentities ($_POST['$_clubName']);
+                $new_clubGenre = htmlentities ($_POST['clubGenreUpdate']);
+                $new_clubEmail = htmlentities ($_POST['clubEmailUpdate']);
+                $new_clubWebsite = htmlentities ($_POST['clubWebsiteUpdate']);
+                $new_contactName = htmlentities ($_POST['contactNameUpdate']);
+                $new_contactNo = htmlentities ($_POST['contactNumberUpdate']);
+                $new_description = htmlentities ($_POST['descriptionUpdate']);
 
                 if($new_clubName != null) {
                     $final_clubName = $new_clubName;
