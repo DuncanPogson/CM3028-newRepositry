@@ -10,11 +10,10 @@ session_start();
 include ("Database/LoginSystem/DB_Connect.php");
 include ("header.php");
 
-//if (isset($_SESSION['login_username'])) {
-
+if (isset($_SESSION['login_username'])) {
     //$_curUser = $_GET['login_username'];
-
-    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_GET['login_username'] . "'";
+    include ("Database/LoginSystem/DB_Connect.php");
+    $_UserSql = "SELECT userID FROM users WHERE username = '" . $_SESSION['login_username'] . "'";
     $userResult = $conn->query($_UserSql);
     echo "User ID: " . $userResult . "";
 
