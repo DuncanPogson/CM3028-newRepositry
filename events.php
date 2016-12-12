@@ -33,6 +33,7 @@ include("header.php");
     </html>
 <?
 
+    include("footer.php");
 
 
 
@@ -40,13 +41,13 @@ include("header.php");
     //connect to the database
     include("Database/LoginSystem/DB_Connect.php");
 
-    $_eventName = $_POST["event_name"];
-    $_date = $_POST["event_date"];
-    $_time = $_POST["event_time"];
-    $_description = $_POST["event_description"];
+    $_event_name = $_POST["event_name"];
+    $_event_date = $_POST["event_date"];
+    $_event_time = $_POST["event_time"];
+    $_event_description = $_POST["event_description"];
 
-    $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_eventName . "', '" . $_date . "', '" . $_time . "', '" .
-        $_description . "')";
+    $sql = "INSERT INTO event (eventName, date, time, description) VALUES ('" . $_event_name . "', '" . $_event_date . "', '" . $_event_time . "', '" .
+        $_event_description . "')";
 
 
 
@@ -77,5 +78,5 @@ include("header.php");
     print('You must be an admin to add a club');
 }
 
-include("footer.php");
+
 ?>
