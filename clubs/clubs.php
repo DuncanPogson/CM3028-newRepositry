@@ -38,7 +38,6 @@ session_start();
 include ("../Database/LoginSystem/DB_Connect.php");
 include ("../calendar.php");
 include ("../header.php");
-include ("../events.php");
 ?>
 
 
