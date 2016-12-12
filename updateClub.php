@@ -39,6 +39,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     $_contactNo = $collect_row['contactNo'];
                     $_description = $collect_row['description'];
 
+                    $_SESSION['clubID'] = $_ChosenClub;
                     $_SESSION['clubName'] = $_clubName;
                     $_SESSION['genre'] = $_clubGenre;
                     $_SESSION['clubEmail'] = $_clubEmail;
@@ -55,7 +56,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     <main>
                         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
                         <script>tinymce.init({selector: 'textarea'});</script>
-                        <form action="/updateClub.php/?selectClubID={$_ChosenClub}" method="POST">
+                        <form action="/updateClub.php" method="POST">
                             Club Name:<br>
                             <input type="text" name="clubNameUpdate" placeholder="<?php echo ($_clubName);?>">
                             <br>
@@ -140,7 +141,9 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     $final_description = $_SESSION['description'];
                 }
 
-                $sql = "UPDATE club SET clubName ='" . $final_clubName ."', genre ='" . $final_clubGenre . "', clubEmail ='" . $final_clubEmail . "', description ='" . $final_description . "', website ='" . $final_clubWebsite . "', contactName ='" . $final_contactName . "', contactNo ='" . $final_contactNo . "' WHERE clubID ='" . $_GET['selectClubID'] . "'";
+                $_clubID = $_SESSION['clubID'];
+
+                $sql = "UPDATE club SET clubName ='" . $final_clubName ."', genre ='" . $final_clubGenre . "', clubEmail ='" . $final_clubEmail . "', description ='" . $final_description . "', website ='" . $final_clubWebsite . "', contactName ='" . $final_contactName . "', contactNo ='" . $final_contactNo . "' WHERE clubID ='" . $_clubID . "'";
 
                 if (mysqli_query($conn, $sql)) {
                     header("location:/sportlethen.php");
