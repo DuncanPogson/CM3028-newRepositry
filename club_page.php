@@ -30,7 +30,7 @@ include ("header.php");
 
         if ((int)$_currentUser == (int)$_ChosenClub) {
             //echo "<li><a href='/updateClub.php/?ID={$_ChosenClub}'>Update Club</a></li>";
-            echo "<li><a href='updateClub.php/?selectClubID={$_ChosenClub}'>Update Club</a></li>";
+            echo "<li><a href='/updateClub.php/?selectClubID={$_ChosenClub}'>Update Club</a></li>";
         }
     }
 
