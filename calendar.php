@@ -48,7 +48,29 @@ $dbname = "cm3028_groupd3_db";
 </head>
 
 <body>
+<?php
+if (isset($_GET['day'])){
+    $day = $_GET['day'];
+}else{
+    $day = date("j");
+}
+if (isset($_GET['month'])){
+    $month = $_GET['month'];
+}else{
+    $month = date("n");
+}
+if (isset($_GET['year'])){
+    $year = $_GET['year'];
+}else{
+    $year = date("Y");
+}
 
+// calender variable //
+$currentTimeStamp = strtotime("$year-$month-$day");
+$monthName = date("F", $currentTimeStamp);
+$numDays = date("t", $currentTimeStamp);
+$counter = 0;
+?>
 <?php
     if (isset($_GET['add'])){
         $title = htmlentities($_POST['txttitle']);
