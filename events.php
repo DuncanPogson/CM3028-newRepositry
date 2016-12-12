@@ -14,6 +14,7 @@ include("header.php");
 
 
 ?>
+    <html>
     <main>
         <form action="events.php" method="post">
             Event Name:<br>
@@ -71,11 +72,11 @@ while($row = $result->fetch_array()) {
 }
 
 
-} //else {
+} else {
     // not admin
-    //header("location:home.php");
-    //print('You must be an admin to create an event');
-//}
+    header("location:home.php");
+    print('You must be an admin to create an event');
+}
 
 //echo "<a href='events.php'>Create Event</a>";
 
