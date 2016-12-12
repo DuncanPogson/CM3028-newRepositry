@@ -19,9 +19,10 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
             <title>Set Access Level</title>
         </head>
         <main>
-            <form action="setAdmins.php" method="post">
+            <form action="setH_Admins.php" method="post">
                 UserID:<br>
                 <input type="number" name="userForUpdate" placeholder="UserID">
+                <br>
                 <br>
                 new Access Level: 1 - 4<br>
                 <input type="number" name="newAccessLvl" placeholder="1" min="1" max="4">
