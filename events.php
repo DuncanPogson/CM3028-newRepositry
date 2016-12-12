@@ -48,14 +48,12 @@ if (isset($_SESSION['login_username'])) //Session exists
         $sql = "INSERT INTO event (eventName, eventDate, eventTime, description) VALUES ('" . $_event_name . "', '" . $_event_date . "', '" . $_event_time . "', '" .
             $_event_description . "')";
 
+while($row = $result->fetch_array()) {
 
-//while($row = $result->fetch_array()) {
-
-        // echo "{{$row['eventName']}
-        //<p>{$row['date']} AT {$row['time']}</p>
-        //<p>{$row['description']}</p>
-//";
-//}
+         echo "{{$row['eventName']}
+        <p>{$row['date']} AT {$row['time']}</p>
+        <p>{$row['description']}}</p>";
+}
 
         if (mysqli_query($conn, $sql)) {
 //            header("location:home.php");
