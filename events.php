@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
+
 
 if (isset($_SESSION['login_username'])) //Session exists
 {
@@ -50,17 +50,17 @@ include ("calendar.php");
         $_description . "')";
 
 
-//$sql_query = "SELECT * FROM event";
-    
-//$result = $conn->query($sql_query);
+$sql_query = "SELECT * FROM event";
 
-//while($row = $result->fetch_array()) {
+$result = $conn->query($sql_query);
 
-    //echo "{{$row['eventName']}</h2>
- //<p>{$row['date']} AT {$row['time']}</p>
- //<p>{$row['description']}</p>
-//";
-//}
+while($row = $result->fetch_array()) {
+
+    echo "{{$row['eventName']}</h2>
+ <p>{$row['date']} AT {$row['time']}</p>
+ <p>{$row['description']}</p>
+";
+}
 
     if (mysqli_query($conn, $sql)) {
         header("location:home.php");
