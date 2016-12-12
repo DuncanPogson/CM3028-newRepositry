@@ -4,16 +4,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+session_start();
 
 if (isset($_SESSION['login_username'])) //Session exists
 {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 include("header.php");
 
-
-
-?>
+    ?>
     <html>
     <main>
         <form action="events.php" method="post">
@@ -51,34 +49,30 @@ include ("calendar.php");
         $_description . "')";
 
 
-$sql_query = "SELECT * FROM event";
+//$sql_query = "SELECT * FROM event";
 
-$result = $conn->query($sql_query);
+//$result = $conn->query($sql_query);
 
-while($row = $result->fetch_array()) {
+//while($row = $result->fetch_array()) {
 
-    echo "{{$row['eventName']}
- <p>{$row['date']} AT {$row['time']}</p>
- <p>{$row['description']}</p>
-";
-}
+   // echo "{{$row['eventName']}
+ //<p>{$row['date']} AT {$row['time']}</p>
+ //<p>{$row['description']}</p>
+//";
+//}
 
     if (mysqli_query($conn, $sql)) {
         header("location:home.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo "cannot create event, please try again later.";
+        echo "cannot create club, please try again later.";
     }
 }
 
 
 } else {
     // not admin
-    //header("location:adminer.php");
-    //print('You must be an admin to create an event');
+    header("location:home.php");
+    print('You must be an admin to add a club');
 }
-
-//echo "<a href='events.php'>Create Event</a>";
-
-//include("footer.php");
-//?>
+?>
