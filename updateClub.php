@@ -39,17 +39,13 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                     $_contactNo = $collect_row['contactNo'];
                     $_description = $collect_row['description'];
 
-                    echo "<article>
-                            Title: {$_clubName} \n
-                            Genre: {$_clubGenre} \n
-                            Contact Us: \n
-                            Contact Name: {$_contactName} \n
-                            Email: {$_clubEmail} \n
-                            Website: {$_clubWebsite} \n
-                            Phone Number: {$_contactNo} \n
-                            Description: \n{$_description}
-                        </article>";
-
+                    $_SESSION['clubName'] = $_clubName;
+                    $_SESSION['genre'] = $_clubGenre;
+                    $_SESSION['clubEmail'] = $_clubEmail;
+                    $_SESSION['website'] = $_clubWebsite;
+                    $_SESSION['contactName'] = $_contactName;
+                    $_SESSION['contactNo'] = $_contactNo;
+                    $_SESSION['description'] = $_description;
                     //html code to collect user input in the a html form and create a health article from the info
                     ?>
 
@@ -100,13 +96,54 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                 include("Database/LoginSystem/DB_Connect.php");
 
                 //Setting update for users
-                $_UserAccLvl = $_POST['userForUpdate'];
-                $_newAccLvl = $_POST["newAccessLvl"];
+                $new_clubName = $_POST['$_clubName'];
+                $new_clubGenre = $_POST['clubGenreUpdate'];
+                $new_clubEmail = $_POST['clubEmailUpdate'];
+                $new_clubWebsite = $_POST['clubWebsiteUpdate'];
+                $new_contactName = $_POST['contactNameUpdate'];
+                $new_contactNo = $_POST['contactNumberUpdate'];
+                $new_description = $_POST['descriptionUpdate'];
 
-                $sql = "UPDATE users SET accessLevel ='" . $_newAccLvl ."' WHERE userID ='" . $_UserAccLvl . "'";
+                if($new_clubName == null) {
+                    $final_clubName = $new_clubName;
+                }else{
+                    $final_clubName = $_SESSION['clubName'];
+                }
+                if($new_clubGenre == null) {
+                    $final_clubGenre = $new_clubGenre;
+                }else{
+                    $final_clubGenre = $_SESSION['genre'];
+                }
+                if($new_clubEmail == null) {
+                    $final_clubEmail = $new_clubEmail;
+                }else{
+                    $final_clubEmail = $_SESSION['clubEmail'];
+                }
+                if($new_clubWebsite == null) {
+                    $final_clubWebsite = $new_clubWebsite;
+                }else{
+                    $final_clubWebsite = $_SESSION['website'];
+                }
+                if($new_contactName == null) {
+                    $final_contactName = $new_contactName;
+                }else{
+                    $final_contactName = $_SESSION['contactName'];
+                }
+                if($new_contactNo == null) {
+                    $final_contactNo = $new_contactNo;
+                }else{
+                    $final_contactNo = $_SESSION['contactNo'];
+                }
+                if($new_description == null) {
+                    $final_description = $new_description;
+                }else{
+                    $final_description = $_SESSION['description'];
+                }
+
+                $sql = "UPDATE club SET clubName ='" . $final_clubName ."', genre ='" . $final_clubGenre . "', clubEmail ='" . $final_clubEmail . "', description ='" . $final_description . "', website ='" . $final_clubWebsite . "', contactName ='" . $final_contactName . "', contactNo ='" . $final_contactNo . "' WHERE clubID ='" . $_GET['selectClubID'] . "'";
 
                 if (mysqli_query($conn, $sql)) {
-                    header("location:home.php");
+                    header("location:sportlethen.php");
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                     echo "pairing failed, please try again later.";
