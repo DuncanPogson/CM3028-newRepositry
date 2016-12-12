@@ -1,3 +1,12 @@
+<?php
+//include ("Database/LoginSystem/DB_Connect.php");
+$servername = "eu-cdbr-azure-north-e.cloudapp.net";
+$username = "b4defdb830e2bc";
+$password = "44f41f1c";
+$dbname = "cm3028_groupd3_db";
+
+?>
+
 <html>
 <head>
     <script>
@@ -40,7 +49,6 @@
 
 <body>
 <?php
-/*
 if (isset($_GET['day'])){
     $day = $_GET['day'];
 }else{
@@ -57,15 +65,29 @@ if (isset($_GET['year'])){
     $year = date("Y");
 }
 
-
 // calender variable //
 $currentTimeStamp = strtotime("$year-$month-$day");
 $monthName = date("F", $currentTimeStamp);
 $numDays = date("t", $currentTimeStamp);
 $counter = 0;
-*/
 ?>
+<?php
+    if (isset($_GET['add'])){
+        $title = $_POST['txttitle'];
+        $detail = $_POST['txtdetail'];
 
+        $eventdate = $day."/".$month."/".$year;
+
+        $sqlinsert =  "insert into eventcalendar (Title, Detail, eventDate, dateAdded) values ('".$title."','".$detail."','".$eventdate."', now())";
+
+        $resultinsert = mysql_query($sqlinsert);
+        if ($resultinsert){
+            echo "Event was succsessfully added";
+        }else{
+            echo "Event failed to be added";
+        }
+    }
+?>
 <table border='1'>
     <tr>
         <td><input style='width:50px;' type='button' value='<' name='previousbutton' onclick="goLastMonth(<?php echo $month.",".$year?>)"></td>
@@ -113,13 +135,12 @@ $counter = 0;
 
 </table>
 <?php
-/*if (isset($_GET['v'])){
+    if (isset($_GET['v'])){
         echo "<a href='".$_SERVER['PHP_SELF']."?month=".$month."&day=".$day."&year=".$year."&v=true&f=true'> Add Event </a>";
         if (isset($_GET['f'])){
             include ("events.php");
         }
     }
-*/
 ?>
 
 </body>
