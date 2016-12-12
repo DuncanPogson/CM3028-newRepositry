@@ -72,23 +72,19 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                                     <br>
                                     <br>
                                     Club Website:<br>
-                                    <input type="text" name="clubWebsiteUpdate"
-                                           placeholder="<?php echo $_clubWebsite; ?>">
+                                    <input type="text" name="clubWebsiteUpdate" placeholder="<?php echo $_clubWebsite; ?>">
                                     <br>
                                     <br>
                                     Contact Name:<br>
-                                    <input type="text" name="contactNameUpdate"
-                                           placeholder="<?php echo $_contactName; ?>">
+                                    <input type="text" name="contactNameUpdate" placeholder="<?php echo $_contactName; ?>">
                                     <br>
                                     <br>
                                     Contact Num:<br>
-                                    <input type="text" name="contactNumberUpdate"
-                                           placeholder="<?php echo $_contactNo; ?>">
+                                    <input type="text" name="contactNumberUpdate" placeholder="<?php echo $_contactNo; ?>">
                                     <br>
                                     <br>
                                     Description:<br>
-                                    <textarea name="descriptionUpdate"
-                                              placeholder="<?php echo ($_description); ?>"></textarea>
+                                    <textarea name="descriptionUpdate" placeholder="<?php echo $_description; ?>"></textarea>
                                     <br>
                                     <br>
                                     <input type="submit" value="Update Club">
