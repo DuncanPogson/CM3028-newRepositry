@@ -80,7 +80,7 @@ $counter = 0;
 
         $sqlinsert =  "insert into eventcalendar (Title, Detail, eventDate, dateAdded) values ('".$title."','".$detail."','".$eventdate."', now())";
 
-        $resultinsert = mysql_query($sqlinsert);
+//        $resultinsert = mysql_query($sqlinsert);
         if ($resultinsert){
             echo "Event was succsessfully added";
         }else{
