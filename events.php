@@ -1,5 +1,5 @@
  <?php
-//include("header.php");
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 if (isset($_SESSION['login_username'])) //Session exists
 {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        include("header.php");
+      
 
         ?>
         <html>
@@ -33,7 +33,7 @@ if (isset($_SESSION['login_username'])) //Session exists
         </html>
         <?
 
-        include("footer.php");
+       
 
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
