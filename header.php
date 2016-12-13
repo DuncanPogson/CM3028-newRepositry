@@ -140,38 +140,48 @@ $first_part = $components[1];
 
 
 
-                } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    //connect to the database
-                    include("Database/LoginSystem/DB_Connect.php");
-                    //saving user input as variables
-                    $_username = htmlentities($_POST["login_username"]);
-                    $_password = htmlentities($_POST["login_password"]);
+               } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //connect to the database
+    include("Database/LoginSystem/DB_Connect.php");
+    //saving user input as variables
+    $_username = htmlentities($_POST["login_username"]);
+    $_password = htmlentities($_POST["login_password"]);
 
-                    function check_login($_username, $_password, $conn)
-                    {
-                        //sql query to test the username and password against ones already in the database
-                        $sql = "SELECT * FROM users WHERE username='" . $_username . "' AND password='" . $_password . "'";
+    function check_login($_username, $_password, $conn)
+    {
+        //sql query to test the username and password against ones already in the database
+        $sql = "SELECT * FROM users WHERE username='" . $_username . "' AND password='" . $_password . "'";
 
-                        //run the sql script
-                        $result = $conn->query($sql);
-                        while ($row = $result->fetch_array()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    if (check_login($_username, $_password, $conn)) {
-                        session_start();
-                        $_SESSION['login_username'] = $_username;
-                        header("location:index.php");
-                    } else {
-                        print('incorrect username or password');
-                        header("location:#myModal");
-                    }
-                } else {
-                    // nothing works
-                    print('all kinds of errors');
-                }
-                ?>
+        //run the sql script
+        $result = $conn->query($sql);
+        while ($row = $result->fetch_array()) {
+            return true;
+        }
+        return false;
+    }
+    if (check_login($_username, $_password, $conn)) {
+        session_start();
+
+        $sql = "SELECT accessLevel FROM users where username='" . $_username . "'";
+        $result = $conn->query($sql);
+
+        while($row = $result->fetch_array()) {
+
+            $_SESSION['AccessLevel'] = $row['accessLevel'];
+
+            $_SESSION['login_username'] = $_username;
+
+            header("location:index.php");
+        }
+    } else {
+        print('incorrect username or password');
+        header("");
+    }
+} else {
+    // nothing works
+    print('all kinds of errors');
+}
+?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
