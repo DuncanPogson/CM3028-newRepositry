@@ -103,7 +103,6 @@ include("../header.php");?>
                             <?php
                            echo "
 <main>
-<h2>Health Articles</h2>
 <ul>
 ";
 
