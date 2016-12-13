@@ -72,15 +72,18 @@ $first_part = $components[1];
 
                             </ul>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                     <ul class="nav navbar-nav navbar-right">
                         <?
-                        if (isset($_SESSION['login_username'])) {
-                            echo  "<li><a href='http://cm3028groupd3newhost.azurewebsites.net/logout.php'>Logout</a>
+                        if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 1)) {
+                        echo  "<li><a href='http://belekaslol.azurewebsites.net/dashboard.php'>Dashboard</a>
                             </li>";
-                        } else {
-
+                            echo  "<li><a href='http://belekaslol.azurewebsites.net/logout.php'>Logout</a>
+                            </li>";}
+                            else if(($_SESSION['login_username'])){
+                                echo  "<li><a href='http://belekaslol.azurewebsites.net/logout.php'>Logout</a>
+                            </li>";}
+                         else {
                             echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">Login</a>
-
                             </li>";
                         }
                         ?>
