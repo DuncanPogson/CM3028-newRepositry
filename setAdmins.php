@@ -11,7 +11,7 @@ session_start();
 if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 4)) //Session exists and access level is high enough to set pairings
 {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        include("header.php");
+        
 
         //html code to collect user input in the a html form and create a health article from the info
         ?>
@@ -62,7 +62,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         }
 
 
-        include("footer.php");
+       
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
