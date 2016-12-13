@@ -7,7 +7,7 @@
  */
 session_start();
 
-include ("header.php");
+
 
     if (isset($_GET['ID'])) {
 //    echo $_GET['ID'];
@@ -84,4 +84,3 @@ while ($row = $result->fetch_array()) {
 
 }
 
-include ("footer.php");
