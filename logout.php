@@ -19,4 +19,4 @@ if
 
     $_SESSION['AccessLevel'] = 0;
 }
-header("location:home.php");
+header("location:index.php");
