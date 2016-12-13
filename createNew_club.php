@@ -11,7 +11,7 @@ session_start();
 if (isset($_SESSION['login_username'])) //Session exists
 {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        include("header.php");
+        
 
         ?>
         <html>
@@ -44,7 +44,7 @@ if (isset($_SESSION['login_username'])) //Session exists
        </html>
         <?
         //
-        include("footer.php");
+     
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //connect to the database
