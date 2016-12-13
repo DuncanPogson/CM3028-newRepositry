@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+include("../Database/LoginSystem/DB_Connect.php");
+include("../header.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <div class="container" style="margin-top: 75px;">
@@ -91,34 +96,33 @@
 
             <!-- Blog Categories Well -->
             <div class="well">
-                <h4>Blog Categories</h4>
+                <h4>Health Articles</h4>
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
+                            <?php
+                           echo "
+<main>
+<h2>Health Articles</h2>
+<ul>
+";
+
+$sql = "SELECT * FROM healthnews ";
+$result = $conn->query($sql);
+while($row = $result->fetch_array())
+{
+    $articleID = $row['itemID'];
+    $articleName = $row['title'];
+    $articleAuthor = $row['userID'];
+
+    
+
+    echo "<li><a href='health_article.php/{$articleID}'>{$articleName}</a> by {$articleAuthor}</li>";
+
+}?>
                         </ul>
                     </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-6 -->
+                
                 </div>
                 <!-- /.row -->
             </div>
@@ -139,40 +143,3 @@
 
 </div>
 <!-- /.container -->
-<?php
-/**
- * Created by PhpStorm.
- * User: duncanpogson
- * Date: 28/11/2016
- * Time: 20:59
- */
-session_start();
-
-include("../Database/LoginSystem/DB_Connect.php");
-include("../header.php");
-include("../calendar.php");
-
-echo "
-<main>
-<h2>Health Articles</h2>
-<ul>
-";
-
-$sql = "SELECT * FROM healthnews ";
-$result = $conn->query($sql);
-while($row = $result->fetch_array())
-{
-    $articleID = $row['itemID'];
-    $articleName = $row['title'];
-    $articleAuthor = $row['userID'];
-
-    
-
-    echo "<li><a href='health_article.php/{$articleID}'>{$articleName}</a> by {$articleAuthor}</li>";
-
-}
-
-echo "
-</main>
-";
-include("../footer.php");
