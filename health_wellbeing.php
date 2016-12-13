@@ -8,7 +8,7 @@
 session_start();
 
 include ("Database/LoginSystem/DB_Connect.php");
-include ("header.php");
+
 include ("events.php");
 
 echo "
@@ -46,5 +46,5 @@ while($row = $result->fetch_array())
 echo "
 </main>
 ";
-include ("footer.php");
+
 
