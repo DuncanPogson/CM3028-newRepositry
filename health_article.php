@@ -8,7 +8,6 @@
 session_start();
 
 include ("Database/LoginSystem/DB_Connect.php");
-include ("header.php");
 
 
 if (isset($_GET['ID'])) {
@@ -39,4 +38,4 @@ if (isset($_GET['ID'])) {
     }
 
 
-include ("footer.php");
+
