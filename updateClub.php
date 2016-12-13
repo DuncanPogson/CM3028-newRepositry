@@ -26,7 +26,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
 
                     if ((int)$_currentUser == (int)$_ChosenClub) {
 
-                        include("header.php");
+                    
 
                         //php to collect all details from database
                         $collect_sql = "SELECT * FROM club where clubID ='" . $_ChosenClub . "'";
@@ -92,7 +92,7 @@ if (isset($_SESSION['login_username'])) //Session exists and access level is hig
                             </main>
 
                             <?
-                            include("footer.php");
+                           
                         }
                     }
                 }
