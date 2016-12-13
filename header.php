@@ -80,7 +80,7 @@ $first_part = $components[1];
                             echo  "<li><a href='http://cm3028groupd3newhost.azurewebsites.net/logout.php'>Logout</a>
                             </li>";}
                             else if(($_SESSION['login_username'])){
-                                echo  "<li><a href='http://cm3028groupd3newhost.azurewebsites.net//logout.php'>Logout</a>
+                                echo  "<li><a href='http://cm3028groupd3newhost.azurewebsites.net/logout.php'>Logout</a>
                             </li>";}
                          else {
                             echo "<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">Login</a>
@@ -125,53 +125,52 @@ $first_part = $components[1];
 
                     <main>
                         <form action="http://cm3028groupd3newhost.azurewebsites.net/login.php" method="post">
-                            Name:<br>
-                            <input type="text" name="login_username" placeholder="Username">
-                            <br>
-                            Password:<br>
-                            <input type="password" name="login_password" placeholder="Password">
-                            <br><br>
-                            <p><input type="submit" value="Login"></p>
-                        </form>
+            Name:<br>
+            <input type="text" name="login_username" placeholder="Username" maxlength="30" pattern="[a-zA-Z0-9\s]+">
+            <br>
+            Password:<br>
+            <input type="password" name="login_password" placeholder="Password" maxlength="255" pattern="[a-zA-Z0-9 ]+">
+            <br><br>
+            <p><input type="submit" value="Login"></p>
+        </form>
                     </main>
                     </html>
                     <?
-                    //
-
-
-
                 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    //connect to the database
-                    include("Database/LoginSystem/DB_Connect.php");
-                    //saving user input as variables
-                    $_username = htmlentities($_POST["login_username"]);
-                    $_password = htmlentities($_POST["login_password"]);
-
-                    function check_login($_username, $_password, $conn)
-                    {
-                        //sql query to test the username and password against ones already in the database
-                        $sql = "SELECT * FROM users WHERE username='" . $_username . "' AND password='" . $_password . "'";
-
-                        //run the sql script
-                        $result = $conn->query($sql);
-                        while ($row = $result->fetch_array()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    if (check_login($_username, $_password, $conn)) {
-                        session_start();
-                        $_SESSION['login_username'] = $_username;
-                        header("location:index.php");
-                    } else {
-                        print('incorrect username or password');
-                        header("location:#myModal");
-                    }
-                } else {
-                    // nothing works
-                    print('all kinds of errors');
-                }
-                ?>
+    //connect to the database
+    include("Database/LoginSystem/DB_Connect.php");
+    //saving user input as variables
+    $_username = htmlentities($_POST["login_username"]);
+    $_password = htmlentities($_POST["login_password"]);
+    function check_login($_username, $_password, $conn)
+    {
+        //sql query to test the username and password against ones already in the database
+        $sql = "SELECT * FROM users WHERE username='" . $_username . "' AND password='" . $_password . "'";
+        //run the sql script
+        $result = $conn->query($sql);
+        while ($row = $result->fetch_array()) {
+            return true;
+        }
+        return false;
+    }
+    if (check_login($_username, $_password, $conn)) {
+        session_start();
+        $sql = "SELECT accessLevel FROM users where username='" . $_username . "'";
+        $result = $conn->query($sql);
+        while($row = $result->fetch_array()) {
+            $_SESSION['AccessLevel'] = $row['accessLevel'];
+            $_SESSION['login_username'] = $_username;
+            header("location:index.php");
+        }
+    } else {
+        print('incorrect username or password');
+        header("");
+    }
+} else {
+    // nothing works
+    print('all kinds of errors');
+}
+?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -197,23 +196,23 @@ $first_part = $components[1];
                 </header>
 
                 <main>
-                    <form action="database/loginsystem/AddNewUser.php" method="post">
-                        <input type="text" name="username" placeholder="Username"><br>
-                        <br>
-                        <input type="text" name="firstName" placeholder="First Name"><br>
-                        <br>
-                        <input type="text" name="lastName" placeholder="Last Name"><br>
-                        <br>
-                        <input type="date" name="dateOfBirth" placeholder="00/00/0000"><br>
-                        <br>
-                        <input type="text" name="address" placeholder="Address"><br>
-                        <br>
-                        <input type="email" name="Email" placeholder="example@example.com"><br>
-                        <br>
-                        <input type="password" name="Password" placeholder="password"><br>
-                        <br><br>
-                        <input type="submit" text="Submit">
-                    </form>
+                   <form action="http://cm3028groupd3newhost.azurewebsites.net/database/loginsystem/AddNewUser.php" method="post">
+        <input type="text" name="username" placeholder="Username" maxlength="30" pattern="[a-zA-Z0-9\s]+"><br>
+        <br>
+        <input type="text" name="firstName" placeholder="First Name" maxlength="30" pattern="[a-zA-Z0-9 ]+"><br>
+        <br>
+        <input type="text" name="lastName" placeholder="Last Name" maxlength="30" pattern="[a-zA-Z0-9 ]+"><br>
+        <br>
+        <input type="date" name="dateOfBirth" placeholder="00/00/0000"><br>
+        <br>
+        <input type="text" name="address" placeholder="Address" maxlength="255" pattern="[a-zA-Z0-9 ]+"><br>
+        <br>
+        <input type="email" name="Email" placeholder="example@example.com" maxlength="60" pattern="[a-zA-Z0-9@ ]+"><br>
+        <br>
+        <input type="password" name="Password" placeholder="password" maxlength="255" pattern="[a-zA-Z0-9 ]+"><br>
+        <br><br>
+        <input type="submit" text="Submit">
+    </form>
                 </main>
             </div>
             <div class="modal-footer">
