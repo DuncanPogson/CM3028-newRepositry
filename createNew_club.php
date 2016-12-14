@@ -24,13 +24,13 @@ if (isset($_SESSION['login_username'])) //Session exists
                 <input type="text" name="club_genre" placeholder="Club Genre" maxlength="30" pattern="[a-zA-Z ]+">
                 <br><br>
                 Club Email:<br>
-                <input type="text" name="club_email" placeholder="Club Email"maxlength="60" pattern="[a-zA-Z0-9@ ]+">
+                <input type="text" name="club_email" placeholder="Club Email"maxlength="60" pattern="[a-zA-Z0-9@. ]+">
                 <br><br>
                 Club Description:<br>
                 <input type="text" name="club_description" placeholder="Description of Club" maxlength="256" pattern="[a-zA-Z0-9 ]+">
                 <br><br>
                 Club Website:<br>
-                <input type="text" name="club_website" placeholder="Club Website" maxlength="256" pattern="[a-zA-Z0-9 ]+">
+                <input type="text" name="club_website" placeholder="Club Website" maxlength="256" pattern="[a-zA-Z0-9. ]+">
                 <br><br>
                 Club Contact:<br>
                 <input type="text" name="club_contact" placeholder="Contact Name" maxlength="60" pattern="[a-zA-Z ]+">
