@@ -53,7 +53,7 @@ if (isset($_SESSION['login_username'])) //Session exists
         $sql = "INSERT INTO healthnews (title, content, importance, username) VALUES ('" . $_ha_title . "', '" . $_ha_content . "', '" . $_ha_importance . "', '" . $_author . "')";
 
         if (mysqli_query($conn, $sql)) {
-            //header("location:home.php");
+            header("location:home.php");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "post failed, please try again later.";
@@ -63,7 +63,7 @@ if (isset($_SESSION['login_username'])) //Session exists
 
 } else {
     // not admin
-    //header("location:home.php");
+    header("location:home.php");
     print('You must be an admin to create an article');
 }
 ?>
