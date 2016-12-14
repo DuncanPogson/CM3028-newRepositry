@@ -68,8 +68,10 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         include("Database/LoginSystem/DB_Connect.php");
 
         //Adding new admin to club
-        $_ClubForAdmin = ($_POST['clubForAdmin']);
-        $_AdminForClub = ($_POST["newClubAdmin"]);
+        $_ClubForAdmin = htmlentities($_POST['clubForAdmin']);
+        $_AdminForClub = htmlentities($_POST["newClubAdmin"]);
+
+        echo "test: " . $_ClubForAdmin ." dsfefs: " . $_AdminForClub . "";
 
         $sql = "UPDATE users SET clubID='" . $_ClubForAdmin ."' WHERE userID='" . $_AdminForClub . "'";
 
