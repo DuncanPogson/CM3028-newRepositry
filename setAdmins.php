@@ -75,7 +75,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         $sql = "UPDATE club SET userID ='" . $_AdminForClub ."' WHERE clubID ='" . $_ClubForAdmin . "'";
 
         if (mysqli_query($conn, $sql)) {
-            header("location:sportlethen.php");
+           // header("location:sportlethen.php");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             echo "pairing failed, please try again later.";
@@ -85,7 +85,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
 } else {
     // not admin
-    header("location:home.php");
+    //header("location:home.php");
     print('You must be an admin to create admin/club pairings');
 }
 ?>
