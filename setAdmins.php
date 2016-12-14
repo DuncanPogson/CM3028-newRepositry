@@ -23,7 +23,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
             <form action="setAdmins.php" method="post">
                 <input type="number" name="clubForAdmin" placeholder="ClubID">
                 <br>
-                <input type="number" name="newClubAdmin" placeholder="username" ><br>
+                <input type="text" name="newClubAdmin" placeholder="username" ><br>
                 <input type="submit" value="Set Admins">
             </form>
         </main>
