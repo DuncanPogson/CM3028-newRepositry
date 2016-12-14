@@ -114,31 +114,31 @@
 	                <div class="row">
 					<div class="col-lg-6">
 						<div class="h2">Create New Event</div>
-						<?php include("events.php")?>
+                        echo "<li><a href='events.php'>Create Event</a></li>";
 					</div>
 						<div class="col-lg-6">
 							<div class="h2">Calendar</div>
-							<?php include("calendar.php")?>
+                            echo "<li><a href='calendar.php'>Calendar</a></li>";
 						</div>
 	                </div>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="h2">Create New Health Article</div>
-							<?php include("createNew_healtharticle.php")?>
+                            echo "<li><a href='createNew_healtharticle.php'>Create new Health Article</a></li>";
 						</div>
 						<div class="col-lg-6">
 							<div class="h2">Create New Club</div>
-							<?php include("createNew_club.php")?>
+                            echo "<li><a href='createNew_club.php'>Create new Club</a></li>";
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="h2">Set club Admins</div>
-							<?php include("setAdmins.php")?>
+                            echo "<li><a href='setAdmins.php'>Set Club Admins</a></li>";
 						</div>
 						<div class="col-lg-6">
 							<div class="h2">Set Site Admins</div>
-							<?php include("setH_Admins.php")?>
+                            echo "<li><a href='setH_Admins.php'>Set Site Admins</a></li>";
 						</div>
 					</div>
 				
