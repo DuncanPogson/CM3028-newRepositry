@@ -23,7 +23,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
             <form action="setAdmins.php" method="post">
                 <input type="number" name="clubForAdmin" placeholder="ClubID">
                 <br>
-                <input type="number" name="newClubAdmin" placeholder="UserID" ><br>
+                <input type="number" name="newClubAdmin" placeholder="username" ><br>
                 <input type="submit" value="Set Admins">
             </form>
         </main>
@@ -54,10 +54,9 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         {
             $clubName = $clubRow['clubName'];
             $clubID = $clubRow['clubID'];
-            $currentAdmin = $clubRow['userID'];
 
 
-            echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
+            echo "<li>Club Name: {$clubName}, ID: {$clubID}</li>";
 
         }
 
@@ -72,7 +71,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         $_ClubForAdmin = htmlentities($_POST['clubForAdmin']);
         $_AdminForClub = htmlentities($_POST["newClubAdmin"]);
 
-        $sql = "UPDATE club SET userID ='" . $_AdminForClub ."' WHERE clubID ='" . $_ClubForAdmin . "'";
+        $sql = "UPDATE users SET clubID ='" . $_ClubForAdmin ."' WHERE username ='" . $_AdminForClub . "'";
 
         if (mysqli_query($conn, $sql)) {
            header("location:dashboard.php");
