@@ -54,7 +54,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         {
             $clubName = $clubRow['clubName'];
             $clubID = $clubRow['clubID'];
-            $currentAdmin = $clubRow['username'];
+            $currentAdmin = $clubRow['userID'];
 
 
             echo "<li>Club Name: {$clubName}, ID: {$clubID}, Current Admin: {$currentAdmin}</li>";
