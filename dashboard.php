@@ -114,7 +114,7 @@
 	                <div class="row">
 					<div class="col-lg-6">
 						<div class="h2">Create New Event</div>
-						<?php include("eventForm.php")?>
+						<?php include("events.php")?>
 					</div>
 						<div class="col-lg-6">
 							<div class="h2">Calendar</div>
