@@ -6,7 +6,7 @@
  * Time: 13:52
  */
 
-//session_start();
+session_start();
 
 if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 4)) //Session exists and access level is high enough to set pairings
 {
@@ -70,8 +70,6 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         //Adding new admin to club
         $_ClubForAdmin = htmlentities($_POST['clubForAdmin']);
         $_AdminForClub = htmlentities($_POST["newClubAdmin"]);
-
-        echo "test: " . $_ClubForAdmin ." dsfefs: " . $_AdminForClub . "";
 
         $sql = "UPDATE users SET clubID='" . $_ClubForAdmin ."' WHERE userID='" . $_AdminForClub . "'";
 
