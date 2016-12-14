@@ -105,7 +105,15 @@ include("../header.php");?>
 <main>
 <ul>
 ";
-
+if(isset($_SESSION['AccessLevel'])) {
+    if (((int)$_SESSION['AccessLevel']) >= 2) {
+        echo "<a href='createNew_HealthArticle.php'>Create New Article</a>";
+    } else {
+        echo "You can only read articles, Login to write your own!";
+    }
+}else{
+    echo "You can only read articles, Login to write your own!";
+}
 $sql = "SELECT * FROM healthnews ";
 $result = $conn->query($sql);
 while($row = $result->fetch_array())
@@ -113,12 +121,12 @@ while($row = $result->fetch_array())
     $articleID = $row['itemID'];
     $articleName = $row['title'];
     $articleAuthor = $row['username'];
+    echo "<li><a href='health_article.php/?ID={$articleID}'>{$articleName}</a> by {$articleAuthor}</li>";
+}
+echo "
+</main>
+";
 
-    
-
-    echo "<li><a href='health_article.php/{$articleID}'>{$articleName}</a> by {$articleAuthor}</li>";
-
-}?>
                         </ul>
                     </div>
                 
