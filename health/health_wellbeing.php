@@ -112,7 +112,7 @@ while($row = $result->fetch_array())
 {
     $articleID = $row['itemID'];
     $articleName = $row['title'];
-    $articleAuthor = $row['userID'];
+    $articleAuthor = $row['username'];
 
     
 
