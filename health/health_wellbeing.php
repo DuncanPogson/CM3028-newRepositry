@@ -125,7 +125,7 @@ while($row = $result->fetch_array())
 }
 echo "
 </main>
-";
+";?>
 
                         </ul>
                     </div>
