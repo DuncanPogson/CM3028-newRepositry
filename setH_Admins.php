@@ -21,7 +21,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         <main>
             <form action="setH_Admins.php" method="post">
                 UserID:<br>
-                <input type="number" name="userForUpdate" placeholder="UserID">
+                <input type="text" name="userForUpdate" placeholder="Username">
                 <br>
                 <br>
                 Access Level: 1 - 4<br>
@@ -33,7 +33,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
 
         <?
 
-        //Listing all clubs/Users to make it easier for the club admin to select which user/club admin relationship they wish to create.
+        //Listing all Users to make it easier admin.
         include("Database/LoginSystem/DB_Connect.php");
 
         echo""."<br/>"."All Users:"."<br/>"."";
@@ -60,7 +60,7 @@ if ((isset($_SESSION['login_username'])) && (((int)$_SESSION['AccessLevel']) >= 
         $_UserAccLvl = htmlentities($_POST['userForUpdate']);
         $_newAccLvl = htmlentities($_POST["newAccessLvl"]);
 
-        $sql = "UPDATE users SET accessLevel ='" . $_newAccLvl ."' WHERE userID ='" . $_UserAccLvl . "'";
+        $sql = "UPDATE users SET accessLevel ='" . $_newAccLvl ."' WHERE username ='" . $_UserAccLvl . "'";
 
         if (mysqli_query($conn, $sql)) {
            header("location:dashboard.php");
