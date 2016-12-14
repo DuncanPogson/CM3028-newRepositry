@@ -6,7 +6,7 @@
  * Time: 00:31
  */
 
-//session_start();
+session_start();
 
 if (isset($_SESSION['login_username'])) //Session exists
 {
