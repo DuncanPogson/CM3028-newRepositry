@@ -114,31 +114,31 @@
 	                <div class="row">
 					<div class="col-lg-6">
 						<div class="h2">Create New Event</div>
-                        echo "<li><a href='events.php'>Create Event</a></li>";
+                        <li><a href='events.php'>Create Event</a></li>;
 					</div>
 						<div class="col-lg-6">
 							<div class="h2">Calendar</div>
-                            echo "<li><a href='calendar.php'>Calendar</a></li>";
+                            <li><a href='calendar.php'>Calendar</a></li>;
 						</div>
 	                </div>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="h2">Create New Health Article</div>
-                            echo "<li><a href='createNew_healtharticle.php'>Create new Health Article</a></li>";
+                            <li><a href='createNew_healtharticle.php'>Create new Health Article</a></li>;
 						</div>
 						<div class="col-lg-6">
 							<div class="h2">Create New Club</div>
-                            echo "<li><a href='createNew_club.php'>Create new Club</a></li>";
+                            <li><a href='createNew_club.php'>Create new Club</a></li>;
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="h2">Set club Admins</div>
-                            echo "<li><a href='setAdmins.php'>Set Club Admins</a></li>";
+                            <li><a href='setAdmins.php'>Set Club Admins</a></li>;
 						</div>
 						<div class="col-lg-6">
 							<div class="h2">Set Site Admins</div>
-                            echo "<li><a href='setH_Admins.php'>Set Site Admins</a></li>";
+                            <li><a href='setH_Admins.php'>Set Site Admins</a></li>;
 						</div>
 					</div>
 				
